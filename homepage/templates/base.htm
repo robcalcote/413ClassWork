@@ -1,0 +1,50 @@
+## this is the skeleton of all pages on in this app - it defines the basic html tags
+<!DOCTYPE html>
+<html>
+    <meta charset="UTF-8">
+    <head>
+
+        <title>Jedi &mdash; <%block name="title"></%block></title>
+
+        ## add any site-wide scripts or CSS here; for example, jquery:
+	    ## Don't add relative paths, they won't work with DMP
+	    ## Always start with the root directory of the server. /asdf/asf/asdf etc
+	    <script src="${ STATIC_URL }homepage/media/jquery-3.3.1.js"></script>
+
+        ## render the static file links with the same name as this template
+        <script src="/django_mako_plus/dmp-common.min.js"></script>
+        ${ django_mako_plus.links(self) }
+
+    </head>
+    <body>
+
+        <header>
+            <img src="${ STATIC_URL }homepage/media/python.png" alt="python" />
+            <div class="title">Welcome to <br/> DMP!</div>
+        </header>
+
+        <main>
+            <div id="site_left">
+                <%block name="site_left">
+                    Left Side
+                </%block>
+            </div>
+            <div id="site_center">
+                <%block name="site_center">
+                    Center
+                </%block>
+            </div>
+            <div id="site_right">
+                <%block name="site_right">
+                    Right Side
+                </%block>
+            </div>
+        </main>
+
+        <footer>
+            <div><a href="http://django-mako-plus.readthedocs.io/">Online Documentation</a></div>
+            <div><a href="https://github.com/doconix/django-mako-plus/">DMP on GitHub</a></div>
+        </footer>
+
+    </body>
+</html>
