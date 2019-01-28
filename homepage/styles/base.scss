@@ -5,6 +5,11 @@ html, body {
     color: #777788;
 }
 
+#maintenance_message {
+    position: fixed;
+    width: auto;
+}
+
 .clearfix {
     clear: both;
 }
@@ -28,6 +33,8 @@ header {
     } 
 }
 
+
+// Declare a variable in CSS
 $side-col-width: 200px;
 
 main {
