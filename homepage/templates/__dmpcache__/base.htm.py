@@ -5,7 +5,7 @@ STOP_RENDERING = runtime.STOP_RENDERING
 __M_dict_builtin = dict
 __M_locals_builtin = locals
 _magic_number = 10
-_modified_time = 1548708378.4129267
+_modified_time = 1549258072.5173953
 _enable_loop = True
 _template_filename = 'C:/Users/Rob/Desktop/BYU/Winter2019/413/project2class/homepage/templates/base.htm'
 _template_uri = 'base.htm'
@@ -19,16 +19,16 @@ def render_body(context,**pageargs):
     __M_caller = context.caller_stack._push_frame()
     try:
         __M_locals = __M_dict_builtin(pageargs=pageargs)
-        self = context.get('self', UNDEFINED)
+        def site_right():
+            return render_site_right(context._locals(__M_locals))
         def site_center():
             return render_site_center(context._locals(__M_locals))
+        self = context.get('self', UNDEFINED)
+        def site_left():
+            return render_site_left(context._locals(__M_locals))
         def title():
             return render_title(context._locals(__M_locals))
         STATIC_URL = context.get('STATIC_URL', UNDEFINED)
-        def site_left():
-            return render_site_left(context._locals(__M_locals))
-        def site_right():
-            return render_site_right(context._locals(__M_locals))
         __M_writer = context.writer()
         __M_writer('<!DOCTYPE html>\r\n<html>\r\n    <meta charset="UTF-8">\r\n    <head>\r\n\r\n        <title>Jedi &mdash; ')
         if 'parent' not in context._data or not hasattr(context._data['parent'], 'title'):
@@ -36,9 +36,13 @@ def render_body(context,**pageargs):
         
 
         __M_writer('</title>\r\n\r\n')
-        __M_writer('\t    <script src="')
+        __M_writer('        \r\n\r\n')
+        __M_writer('        <script src="')
         __M_writer(django_mako_plus.ExpressionPostProcessor(self)( STATIC_URL ))
-        __M_writer('homepage/media/jquery-3.3.1.js"></script>\r\n\r\n')
+        __M_writer('homepage/media/jquery-3.3.1.js"></script>\r\n')
+        __M_writer('        <link rel="stylesheet" href="')
+        __M_writer(django_mako_plus.ExpressionPostProcessor(self)( STATIC_URL ))
+        __M_writer('homepage/media/bootstrap-4.0.0-dist/css/bootstrap.min.css"/>\r\n        <script src="bootstrap-4.0.0-dist/js/bootstrap.min.js"></script>\r\n        \r\n')
         __M_writer('        <script src="/django_mako_plus/dmp-common.min.js"></script>\r\n        ')
         __M_writer(django_mako_plus.ExpressionPostProcessor(self)( django_mako_plus.links(self) ))
         __M_writer('\r\n\r\n    </head>\r\n    <body>\r\n\r\n        <div id="maintenance_message" class="alert alert-danger">\r\n            Hey There. The server is going down right now. Boo Hoo.\r\n        </div>\r\n\r\n        <header>\r\n            <img src="')
@@ -113,6 +117,6 @@ def render_site_right(context,**pageargs):
 
 """
 __M_BEGIN_METADATA
-{"filename": "C:/Users/Rob/Desktop/BYU/Winter2019/413/project2class/homepage/templates/base.htm", "uri": "base.htm", "source_encoding": "utf-8", "line_map": {"18": 0, "33": 2, "38": 7, "39": 12, "40": 12, "41": 12, "42": 15, "43": 16, "44": 16, "45": 26, "46": 26, "51": 34, "56": 39, "61": 44, "67": 7, "78": 32, "84": 32, "90": 37, "96": 37, "102": 42, "108": 42, "114": 108}}
+{"filename": "C:/Users/Rob/Desktop/BYU/Winter2019/413/project2class/homepage/templates/base.htm", "uri": "base.htm", "source_encoding": "utf-8", "line_map": {"18": 0, "33": 2, "38": 7, "39": 12, "40": 15, "41": 15, "42": 15, "43": 17, "44": 17, "45": 17, "46": 21, "47": 22, "48": 22, "49": 32, "50": 32, "55": 40, "60": 45, "65": 50, "71": 7, "82": 38, "88": 38, "94": 43, "100": 43, "106": 48, "112": 48, "118": 112}}
 __M_END_METADATA
 """
