@@ -27,31 +27,26 @@
         </div>
 
         <header>
-            <img src="${ STATIC_URL }homepage/media/python.png" alt="python" />
-            <div class="title">Welcome to <br/> DMP!</div>
+            ## Menu
         </header>
 
         <main>
+            ## Think of these blocks as viewbags = place the things they contain in the files that inherit from base.
             <div id="site_left">
-                <%block name="site_left">
-                    Left Side
-                </%block>
+                <%block name="site_left"></%block>
             </div>
             <div id="site_center">
-                <%block name="site_center">
-                    Center
-                </%block>
+                <%block name="site_center"></%block>
             </div>
             <div id="site_right">
-                <%block name="site_right">
-                    Right Side
-                </%block>
+                <%block name="site_right"></%block>
             </div>
         </main>
 
+
+
         <footer>
-            <div><a href="http://django-mako-plus.readthedocs.io/">Online Documentation</a></div>
-            <div><a href="https://github.com/doconix/django-mako-plus/">DMP on GitHub</a></div>
+            <%! from datetime import datetime %> 
         </footer>
 
     </body>
