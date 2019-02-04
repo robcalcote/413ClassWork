@@ -3,7 +3,7 @@
 # Edit at https://www.gitignore.io/?templates=django,visualstudiocode
 
 ## Django_Mako_Plus ##
-homepage/templates/__dmpcache__
+homepage/templates/__dmpcache__/__pycache__
 
 ## SCSS ##
 *.scss.css
