@@ -3,6 +3,7 @@
 # Edit at https://www.gitignore.io/?templates=django,visualstudiocode
 
 ## Django_Mako_Plus ##
+## These are manually added by me as I discover more about the DMP structure ##
 homepage/templates/__dmpcache__/__pycache__
 
 ## SCSS ##
