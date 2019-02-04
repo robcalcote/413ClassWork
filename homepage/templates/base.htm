@@ -9,8 +9,10 @@
         ## add any site-wide scripts or CSS here; for example, jquery:
 	    ## Don't add relative paths, they won't work with DMP
 	    ## Always start with the root directory of the server. /asdf/asf/asdf etc
-	    <script src="${ STATIC_URL }homepage/media/jquery-3.3.1.js"></script>
-
+        <script src="${ STATIC_URL }homepage/media/jquery-3.3.1.js"></script>
+        ## CSS - Bootstrap 4
+        <style src="${ STATIC_URL }homepage/media/css"></style>
+        
         ## render the static file links with the same name as this template
         <script src="/django_mako_plus/dmp-common.min.js"></script>
         ${ django_mako_plus.links(self) }
