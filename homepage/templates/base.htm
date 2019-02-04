@@ -4,15 +4,13 @@
     <meta charset="UTF-8">
     <head>
 
-        <title>Jedi &mdash; <%block name="title"></%block></title>
-
-        ## add any site-wide scripts or CSS here; for example, jquery:
-	    ## Don't add relative paths, they won't work with DMP
-        ## Always start with the root directory of the server. /asdf/asf/asdf etc
-        
+        ## Title and Site Icon
+        <title>Test - <%block name="title"></%block></title>
+        <link rel="icon" href="${ STATIC_URL }homepage/media/pythonicon.png">  
 
         ## JavaScript - JQuery 
         <script src="${ STATIC_URL }homepage/media/jquery-3.3.1.js"></script>
+
         ## CSS - Bootstrap 4
         <link rel="stylesheet" href="${ STATIC_URL }homepage/media/bootstrap-4.0.0-dist/css/bootstrap.min.css"/>
         <script src="bootstrap-4.0.0-dist/js/bootstrap.min.js"></script>
@@ -25,7 +23,7 @@
     <body>
 
         <div id="maintenance_message" class="alert alert-danger">
-            Hey There. The server is going down right now. Boo Hoo.
+            This page is under construction...
         </div>
 
         <header>

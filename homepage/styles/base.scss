@@ -5,9 +5,11 @@ html, body {
     color: #777788;
 }
 
+// For 'page under construction' banner
 #maintenance_message {
-    position: fixed;
-    width: auto;
+    position: absolute;
+    width: 100%;
+    text-align: center;
 }
 
 .clearfix {
