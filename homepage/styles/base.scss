@@ -1,16 +1,16 @@
+// Declare a variable in CSS
+$maintenance_message_margins: 300px;
+$side-col-width: 200px;
+
 html, body {
     margin: 0;
     padding: 0;
     font-family: sans-serif;
     color: #777788;
+
 }
 
-// For 'page under construction' banner
-#maintenance_message {
-    position: absolute;
-    width: 100%;
-    text-align: center;
-}
+
 
 .clearfix {
     clear: both;
@@ -33,11 +33,33 @@ header {
         vertical-align: middle;
         margin-right: 24px;
     } 
+
+    #navbar_main {
+        padding-top: 25px;
+    }
+
+    .current_page_header {
+        position: absolute;
+        float: left;
+    }
+
+    #navbar-nav {
+        position: absolute;
+        right: 0px;
+    }
+
+    // For 'page under construction' banner
+    #maintenance_message {
+        //position: absolute;
+        text-align: center;
+        margin-top: 20px;
+        margin-left: $maintenance_message_margins;
+        margin-right: $maintenance_message_margins;
+    }
 }
 
 
-// Declare a variable in CSS
-$side-col-width: 200px;
+
 
 main {
     position: relative;
