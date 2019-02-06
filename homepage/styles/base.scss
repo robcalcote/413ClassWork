@@ -17,7 +17,7 @@ html, body {
 }
 
 header {
-    padding: 50px 20px;
+    //padding: 50px 20px;
     text-align: center;
 
     > .title {
@@ -35,7 +35,8 @@ header {
     } 
 
     #navbar_main {
-        padding-top: 25px;
+        padding-top: 5px;
+        padding-bottom: 20px;
     }
 
     .current_page_header {
@@ -56,6 +57,10 @@ header {
         margin-left: $maintenance_message_margins;
         margin-right: $maintenance_message_margins;
     }
+
+    #dropdown-menu {
+        text-align: center;
+    }
 }
 
 
@@ -65,6 +70,14 @@ main {
     position: relative;
     margin: 0px;
     padding: 0px;
+
+    #site_title {
+        margin-left: $side-col-width;
+        margin-right: $side-col-width;
+        height: 50px;
+        top: 0px;
+        background-color: blue;
+    }
 
     #site_left {
         background-color: green;
@@ -80,7 +93,7 @@ main {
         top: 0px;
         margin-left: $side-col-width;
         margin-right: $side-col-width;
-        height: 300px;
+        height: 250px;
     }
     #site_right {
         background-color: #ccccff;

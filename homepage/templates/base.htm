@@ -22,21 +22,17 @@
     </head>
     <body>
         <header>
+
+            ## Maintenance Message on the navbar header
+            <div id="maintenance_message" class="alert alert-danger">
+                This page is under construction...
+            </div>
+
             ## Menu
             <div id="navbar_main">
                 <nav class="navbar navbar-expand-lg navbar-light bg-light">
                     ## Title of Sprint
-                    <a class="navbar-brand" href="#">Sprint 1</a>
-
-                    ## Current Page
-                    <div name="current_page_header">
-                        Current Page: ${ request.dmp.page }
-                    </div>
-
-                    ## Maintenance Message on the navbar header
-                    <div id="maintenance_message" class="alert alert-danger">
-                        This page is under construction...
-                    </div>
+                    <a class="navbar-brand" href="#"></a>
 
                     ## Navbar Items Block
                     <div class="collapse navbar-collapse" id="navbarSupportedContent">
@@ -49,6 +45,11 @@
         </header>
 
         <main>
+            ## This is a Title for the page displayed above the center main block
+            <div id="site_title">
+                <%block name="site_title"></%block>
+            </div>
+
             ## Think of these blocks as viewbags = place the things they contain in the files that inherit from base.
             <div id="site_left">
                 <%block name="site_left"></%block>

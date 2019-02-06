@@ -1,8 +1,12 @@
 <%inherit file="app_base.htm" />
 
-
 ## Title
 <%block name="title">About</%block>
+
+## Page Title
+<%block name="site_title">
+    ${ request.dmp.page }
+</%block>
 
 ## Content
 <%block name="site_center">

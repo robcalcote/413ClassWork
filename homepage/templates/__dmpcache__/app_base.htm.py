@@ -5,7 +5,7 @@ STOP_RENDERING = runtime.STOP_RENDERING
 __M_dict_builtin = dict
 __M_locals_builtin = locals
 _magic_number = 10
-_modified_time = 1549432122.390032
+_modified_time = 1549481988.3948832
 _enable_loop = True
 _template_filename = 'C:/Users/Rob/Desktop/BYU/Winter2019/413/project2class/homepage/templates/app_base.htm'
 _template_uri = 'app_base.htm'
@@ -31,11 +31,11 @@ def render_body(context,**pageargs):
     try:
         __M_locals = __M_dict_builtin(pageargs=pageargs)
         request = context.get('request', UNDEFINED)
-        def navbar_main():
-            return render_navbar_main(context._locals(__M_locals))
-        self = context.get('self', UNDEFINED)
         def footer_datetime():
             return render_footer_datetime(context._locals(__M_locals))
+        self = context.get('self', UNDEFINED)
+        def navbar_main():
+            return render_navbar_main(context._locals(__M_locals))
         __M_writer = context.writer()
         __M_writer('\r\n\r\n')
         if 'parent' not in context._data or not hasattr(context._data['parent'], 'navbar_main'):
@@ -47,7 +47,7 @@ def render_body(context,**pageargs):
             context['self'].footer_datetime(**pageargs)
         
 
-        __M_writer('\r\n')
+        __M_writer('\r\n\r\n')
         return ''
     finally:
         context.caller_stack._pop_frame()
@@ -57,9 +57,9 @@ def render_navbar_main(context,**pageargs):
     __M_caller = context.caller_stack._push_frame()
     try:
         request = context.get('request', UNDEFINED)
+        self = context.get('self', UNDEFINED)
         def navbar_main():
             return render_navbar_main(context)
-        self = context.get('self', UNDEFINED)
         __M_writer = context.writer()
         __M_writer('\r\n    <li class="nav-item ')
         __M_writer(django_mako_plus.ExpressionPostProcessor(self)( 'active' if request.dmp.page == 'index' else '' ))
@@ -79,6 +79,7 @@ def render_footer_datetime(context,**pageargs):
         def footer_datetime():
             return render_footer_datetime(context)
         __M_writer = context.writer()
+        __M_writer('\r\n\r\n')
         return ''
     finally:
         context.caller_stack._pop_frame()
@@ -86,6 +87,6 @@ def render_footer_datetime(context,**pageargs):
 
 """
 __M_BEGIN_METADATA
-{"filename": "C:/Users/Rob/Desktop/BYU/Winter2019/413/project2class/homepage/templates/app_base.htm", "uri": "app_base.htm", "source_encoding": "utf-8", "line_map": {"29": 0, "40": 1, "45": 24, "50": 27, "56": 5, "64": 5, "65": 6, "66": 6, "67": 8, "68": 8, "69": 10, "70": 10, "76": 27, "87": 76}}
+{"filename": "C:/Users/Rob/Desktop/BYU/Winter2019/413/project2class/homepage/templates/app_base.htm", "uri": "app_base.htm", "source_encoding": "utf-8", "line_map": {"29": 0, "40": 1, "45": 24, "50": 29, "56": 5, "64": 5, "65": 6, "66": 6, "67": 8, "68": 8, "69": 10, "70": 10, "76": 27, "82": 27, "88": 82}}
 __M_END_METADATA
 """
