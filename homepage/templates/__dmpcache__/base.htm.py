@@ -5,14 +5,14 @@ STOP_RENDERING = runtime.STOP_RENDERING
 __M_dict_builtin = dict
 __M_locals_builtin = locals
 _magic_number = 10
-_modified_time = 1549483002.273069
+_modified_time = 1549486789.7132404
 _enable_loop = True
 _template_filename = 'C:/Users/Rob/Desktop/BYU/Winter2019/413/project2class/homepage/templates/base.htm'
 _template_uri = 'base.htm'
 _source_encoding = 'utf-8'
 import django_mako_plus
 import django.utils.html
-_exports = ['title', 'navbar_main', 'site_title', 'site_left', 'site_center', 'site_right', 'footer_datetime']
+_exports = ['title', 'navbar_main', 'site_title', 'site_left', 'site_center', 'site_right']
 
 
 from datetime import datetime 
@@ -21,22 +21,20 @@ def render_body(context,**pageargs):
     __M_caller = context.caller_stack._push_frame()
     try:
         __M_locals = __M_dict_builtin(pageargs=pageargs)
-        def site_left():
-            return render_site_left(context._locals(__M_locals))
-        def footer_datetime():
-            return render_footer_datetime(context._locals(__M_locals))
-        def site_title():
-            return render_site_title(context._locals(__M_locals))
-        def site_right():
-            return render_site_right(context._locals(__M_locals))
         self = context.get('self', UNDEFINED)
         def navbar_main():
             return render_navbar_main(context._locals(__M_locals))
-        STATIC_URL = context.get('STATIC_URL', UNDEFINED)
-        def site_center():
-            return render_site_center(context._locals(__M_locals))
+        def site_right():
+            return render_site_right(context._locals(__M_locals))
+        def site_left():
+            return render_site_left(context._locals(__M_locals))
         def title():
             return render_title(context._locals(__M_locals))
+        def site_title():
+            return render_site_title(context._locals(__M_locals))
+        def site_center():
+            return render_site_center(context._locals(__M_locals))
+        STATIC_URL = context.get('STATIC_URL', UNDEFINED)
         __M_writer = context.writer()
         __M_writer('<!DOCTYPE html>\r\n<html>\r\n    <meta charset="UTF-8">\r\n    <head>\r\n\r\n')
         __M_writer('        <title>Test - ')
@@ -86,13 +84,10 @@ def render_body(context,**pageargs):
             context['self'].site_right(**pageargs)
         
 
-        __M_writer('\r\n            </div>\r\n        </main>\r\n\r\n\r\n\r\n        <footer>\r\n            ')
-        __M_writer('\r\n            ')
-        if 'parent' not in context._data or not hasattr(context._data['parent'], 'footer_datetime'):
-            context['self'].footer_datetime(**pageargs)
-        
-
-        __M_writer('\r\n        </footer>\r\n\r\n    </body>\r\n</html>\r\n')
+        __M_writer('\r\n            </div>\r\n        </main>\r\n\r\n\r\n\r\n        <footer>\r\n            <div id="footer_main">\r\n                ')
+        __M_writer('\r\n                <p>Copyright &copy; ')
+        __M_writer(django_mako_plus.ExpressionPostProcessor(self)( datetime.now().strftime('%Y') ))
+        __M_writer(' Sprint 1</p><br/>\r\n            </div>\r\n        </footer>\r\n\r\n    </body>\r\n</html>\r\n')
         return ''
     finally:
         context.caller_stack._pop_frame()
@@ -164,19 +159,8 @@ def render_site_right(context,**pageargs):
         context.caller_stack._pop_frame()
 
 
-def render_footer_datetime(context,**pageargs):
-    __M_caller = context.caller_stack._push_frame()
-    try:
-        def footer_datetime():
-            return render_footer_datetime(context)
-        __M_writer = context.writer()
-        return ''
-    finally:
-        context.caller_stack._pop_frame()
-
-
 """
 __M_BEGIN_METADATA
-{"filename": "C:/Users/Rob/Desktop/BYU/Winter2019/413/project2class/homepage/templates/base.htm", "uri": "base.htm", "source_encoding": "utf-8", "line_map": {"18": 68, "20": 0, "41": 2, "42": 8, "47": 8, "48": 9, "49": 9, "50": 12, "51": 12, "52": 12, "53": 15, "54": 15, "55": 15, "56": 19, "57": 20, "58": 20, "59": 27, "60": 32, "61": 35, "62": 38, "67": 40, "68": 49, "73": 50, "74": 54, "79": 55, "84": 58, "89": 61, "90": 68, "95": 69, "101": 8, "112": 40, "123": 50, "134": 55, "145": 58, "156": 61, "167": 69, "178": 167}}
+{"filename": "C:/Users/Rob/Desktop/BYU/Winter2019/413/project2class/homepage/templates/base.htm", "uri": "base.htm", "source_encoding": "utf-8", "line_map": {"18": 69, "20": 0, "39": 2, "40": 8, "45": 8, "46": 9, "47": 9, "48": 12, "49": 12, "50": 12, "51": 15, "52": 15, "53": 15, "54": 19, "55": 20, "56": 20, "57": 27, "58": 32, "59": 35, "60": 38, "65": 40, "66": 49, "71": 50, "72": 54, "77": 55, "82": 58, "87": 61, "88": 69, "89": 70, "90": 70, "96": 8, "107": 40, "118": 50, "129": 55, "140": 58, "151": 61, "162": 151}}
 __M_END_METADATA
 """

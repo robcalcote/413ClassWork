@@ -5,7 +5,7 @@ STOP_RENDERING = runtime.STOP_RENDERING
 __M_dict_builtin = dict
 __M_locals_builtin = locals
 _magic_number = 10
-_modified_time = 1549482965.5078201
+_modified_time = 1549486720.209965
 _enable_loop = True
 _template_filename = 'C:/Users/Rob/Desktop/BYU/Winter2019/413/project2class/homepage/templates/index.html'
 _template_uri = 'index.html'
@@ -30,16 +30,16 @@ def render_body(context,**pageargs):
     __M_caller = context.caller_stack._push_frame()
     try:
         __M_locals = __M_dict_builtin(pageargs=pageargs)
-        def site_left():
-            return render_site_left(context._locals(__M_locals))
+        self = context.get('self', UNDEFINED)
         def site_title():
             return render_site_title(context._locals(__M_locals))
-        def site_center():
-            return render_site_center(context._locals(__M_locals))
         def site_right():
             return render_site_right(context._locals(__M_locals))
         request = context.get('request', UNDEFINED)
-        self = context.get('self', UNDEFINED)
+        def site_left():
+            return render_site_left(context._locals(__M_locals))
+        def site_center():
+            return render_site_center(context._locals(__M_locals))
         def title():
             return render_title(context._locals(__M_locals))
         __M_writer = context.writer()
@@ -89,10 +89,10 @@ def render_title(context,**pageargs):
 def render_site_title(context,**pageargs):
     __M_caller = context.caller_stack._push_frame()
     try:
-        request = context.get('request', UNDEFINED)
+        self = context.get('self', UNDEFINED)
         def site_title():
             return render_site_title(context)
-        self = context.get('self', UNDEFINED)
+        request = context.get('request', UNDEFINED)
         __M_writer = context.writer()
         __M_writer('\r\n    ')
         __M_writer(django_mako_plus.ExpressionPostProcessor(self)( request.dmp.page ))
@@ -108,7 +108,7 @@ def render_site_center(context,**pageargs):
         def site_center():
             return render_site_center(context)
         __M_writer = context.writer()
-        __M_writer('\r\n    <div class="content">\r\n\r\n        <ul>\r\n            <li></li>\r\n            <li></li>\r\n            <li></li>\r\n            <li></li>\r\n            <li>Contact page with form</li>\r\n        </ul>\r\n\r\n    </div>\r\n')
+        __M_writer('\r\n    <div class="content">\r\n\r\n        <ul>\r\n            <li>Create DB in PostgreSQL - PgAdmin4</li>\r\n            <li>change settings to use PostgreSQL</li>\r\n            <li>Unit Tests</li>\r\n            <li></li>\r\n            <li>Contact page with form</li>\r\n        </ul>\r\n\r\n    </div>\r\n')
         return ''
     finally:
         context.caller_stack._pop_frame()

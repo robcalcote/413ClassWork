@@ -65,8 +65,10 @@
 
 
         <footer>
-            <%! from datetime import datetime %>
-            <%block name="footer_datetime"></%block>
+            <div id="footer_main">
+                <%! from datetime import datetime %>
+                <p>Copyright &copy; ${ datetime.now().strftime('%Y') } Sprint 1</p><br/>
+            </div>
         </footer>
 
     </body>
