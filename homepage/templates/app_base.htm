@@ -22,3 +22,12 @@
     <a class="dropdown-item" href="#">Logout</a>
   </div>
 </%block>
+
+<%block name="left_column">
+    <p class="nav-item ${ 'active' if request.dmp.page == 'index' else '' }">
+        <a class="nav-link" href="/">Home</a></p>
+    <p class="nav-item ${ 'active' if request.dmp.page == 'about' else '' }">
+        <a class="nav-link" href="/homepage/about/">About</a></p>
+    <p class="nav-item ${ 'active' if request.dmp.page == 'contact' else '' }">
+        <a class="nav-link" href="/homepage/contact/">Contact</a></p>
+</%block>

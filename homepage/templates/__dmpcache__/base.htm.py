@@ -5,7 +5,7 @@ STOP_RENDERING = runtime.STOP_RENDERING
 __M_dict_builtin = dict
 __M_locals_builtin = locals
 _magic_number = 10
-_modified_time = 1549509523.044896
+_modified_time = 1549511393.731612
 _enable_loop = True
 _template_filename = 'C:/Users/Rob/Desktop/BYU/Winter2019/413/project2class/homepage/templates/base.htm'
 _template_uri = 'base.htm'
@@ -21,21 +21,21 @@ def render_body(context,**pageargs):
     __M_caller = context.caller_stack._push_frame()
     try:
         __M_locals = __M_dict_builtin(pageargs=pageargs)
-        def site_title():
-            return render_site_title(context._locals(__M_locals))
         def center_content():
             return render_center_content(context._locals(__M_locals))
+        def right_column():
+            return render_right_column(context._locals(__M_locals))
         def left_column():
             return render_left_column(context._locals(__M_locals))
         def navbar_main():
             return render_navbar_main(context._locals(__M_locals))
-        def title():
-            return render_title(context._locals(__M_locals))
         def navbar_login():
             return render_navbar_login(context._locals(__M_locals))
+        def site_title():
+            return render_site_title(context._locals(__M_locals))
+        def title():
+            return render_title(context._locals(__M_locals))
         STATIC_URL = context.get('STATIC_URL', UNDEFINED)
-        def right_column():
-            return render_right_column(context._locals(__M_locals))
         self = context.get('self', UNDEFINED)
         __M_writer = context.writer()
         __M_writer('<!DOCTYPE html>\r\n<html>\r\n    <meta charset="UTF-8">\r\n    <head>\r\n\r\n')
@@ -77,7 +77,8 @@ def render_body(context,**pageargs):
         
 
         __M_writer('\r\n            </div>\r\n\r\n')
-        __M_writer('            <div id="left_column">\r\n                ')
+        __M_writer('            <div id="left_column">\r\n')
+        __M_writer('                ')
         if 'parent' not in context._data or not hasattr(context._data['parent'], 'left_column'):
             context['self'].left_column(**pageargs)
         
@@ -180,6 +181,6 @@ def render_right_column(context,**pageargs):
 
 """
 __M_BEGIN_METADATA
-{"filename": "C:/Users/Rob/Desktop/BYU/Winter2019/413/project2class/homepage/templates/base.htm", "uri": "base.htm", "source_encoding": "utf-8", "line_map": {"18": 69, "20": 0, "41": 2, "42": 8, "47": 8, "48": 9, "49": 9, "50": 12, "51": 12, "52": 12, "53": 15, "54": 15, "55": 15, "56": 16, "57": 16, "58": 19, "59": 20, "60": 20, "61": 27, "62": 32, "63": 35, "68": 37, "73": 40, "74": 49, "79": 50, "80": 54, "85": 55, "90": 58, "95": 61, "96": 69, "97": 70, "98": 70, "104": 8, "115": 37, "126": 40, "137": 50, "148": 55, "159": 58, "170": 61, "181": 170}}
+{"filename": "C:/Users/Rob/Desktop/BYU/Winter2019/413/project2class/homepage/templates/base.htm", "uri": "base.htm", "source_encoding": "utf-8", "line_map": {"18": 70, "20": 0, "41": 2, "42": 8, "47": 8, "48": 9, "49": 9, "50": 12, "51": 12, "52": 12, "53": 15, "54": 15, "55": 15, "56": 16, "57": 16, "58": 19, "59": 20, "60": 20, "61": 27, "62": 32, "63": 35, "68": 37, "73": 40, "74": 49, "79": 50, "80": 54, "81": 56, "86": 56, "91": 59, "96": 62, "97": 70, "98": 71, "99": 71, "105": 8, "116": 37, "127": 40, "138": 50, "149": 56, "160": 59, "171": 62, "182": 171}}
 __M_END_METADATA
 """
