@@ -167,7 +167,7 @@ LOGGING = {
     'loggers': {
         'django_mako_plus': {
             'handlers': ['django_mako_plus_console'],
-            #'level': 'DEBUG', #Uncomment to see scss debugging in command prompt
+            'level': 'DEBUG', #Uncomment to see scss debugging in command prompt
             'propagate': False,
         },
     },
