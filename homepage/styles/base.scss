@@ -6,7 +6,7 @@ html, body {
     margin: 0;
     padding: 0;
     font-family: sans-serif;
-    color: #777788;
+    color: #000000;
 
 }
 
@@ -22,11 +22,17 @@ header {
 
     > .title {
         display: inline-block;
-        color: #3771A1;
+        color: #a73c3cd7;
         font-size: 40px;
         font-weight: bold;
         text-shadow: 2px 2px 3px rgba(0, 0, 0, 0.2);
         vertical-align: middle;
+    }
+
+    img.site_icon {
+        width: 40px;
+        height: 40px;
+
     }
 
     img {
@@ -35,7 +41,7 @@ header {
     } 
 
     #navbar_main {
-        padding-top: 5px;
+        padding-top: 20px;
         padding-bottom: 20px;
     }
 
@@ -44,21 +50,21 @@ header {
         float: left;
     }
 
-    #navbar-nav {
+    #navbar-nav{
         position: absolute;
-        right: 0px;
+        width: 100%;
     }
 
     // For 'page under construction' banner
     #maintenance_message {
-        //position: absolute;
-        text-align: center;
+        position: absolute;
+        z-index: 10;
         margin-top: 20px;
+        text-align: center;
         margin-left: $maintenance_message_margins;
-        margin-right: $maintenance_message_margins;
     }
 
-    #dropdown-menu {
+    .dropdown {
         text-align: center;
     }
 }
@@ -79,24 +85,24 @@ main {
         background-color: blue;
     }
 
-    #site_left {
-        background-color: green;
+    #left_column {
+        background-color: rgb(128, 0, 117);
         position: absolute;
         left: 0;
         top: 0;
         width: $side-col-width;
         height: 300px;
     }
-    #site_center {
-        background-color: #ffcccc;
+    #center_content {
+        background-color: #eaee0b;
         //position: absolute;
         top: 0px;
         margin-left: $side-col-width;
         margin-right: $side-col-width;
         height: 250px;
     }
-    #site_right {
-        background-color: #ccccff;
+    #right_column {
+        background-color: #72491b;
         position: absolute;
         right: 0px;
         top: 0px;
@@ -107,12 +113,12 @@ main {
 
 footer {
     margin-top: 40px;
-    border-top: 1px solid #CCCCCC;
+    border-top: 1px solid rgb(24, 98, 100);
     text-align: right;
 
     a {
         display: inline-block;
-        color: #777788;
+        color: #648491;
         margin: 15px 10% 0 0;
     }
 

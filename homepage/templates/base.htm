@@ -5,7 +5,7 @@
     <head>
 
         ## Title and Site Icon
-        <title>Test - <%block name="title"></%block></title>
+        <title>Sprint 1 - <%block name="title"></%block></title>
         <link rel="icon" href="${ STATIC_URL }homepage/media/django.png">  
 
         ## JavaScript - JQuery 
@@ -13,7 +13,7 @@
 
         ## CSS - Bootstrap 4
         <link rel="stylesheet" href="${ STATIC_URL }homepage/media/bootstrap-4.0.0-dist/css/bootstrap.min.css"/>
-        <script src="bootstrap-4.0.0-dist/js/bootstrap.min.js"></script>
+        <script src="${ STATIC_URL }homepage/media/bootstrap-4.0.0-dist/js/bootstrap.min.js"></script>
         
         ## render the static file links with the same name as this template
         <script src="/django_mako_plus/dmp-common.min.js"></script>
@@ -31,14 +31,14 @@
             ## Menu
             <div id="navbar_main">
                 <nav class="navbar navbar-expand-lg navbar-light bg-light">
-                    ## Title of Sprint
-                    <a class="navbar-brand" href="#"></a>
-
                     ## Navbar Items Block
                     <div class="collapse navbar-collapse" id="navbarSupportedContent">
                         <ul class="navbar-nav mr-auto">
                             <%block name="navbar_main"></%block>
                         </ul>
+                        <div class="dropdown">
+                            <%block name="navbar_login"></%block>
+                        </div> 
                     </div>
                 </nav>
             </div>
@@ -51,14 +51,14 @@
             </div>
 
             ## Think of these blocks as viewbags = place the things they contain in the files that inherit from base.
-            <div id="site_left">
-                <%block name="site_left"></%block>
+            <div id="left_column">
+                <%block name="left_column"></%block>
             </div>
-            <div id="site_center">
-                <%block name="site_center"></%block>
+            <div id="center_content">
+                <%block name="center_content"></%block>
             </div>
-            <div id="site_right">
-                <%block name="site_right"></%block>
+            <div id="right_column">
+                <%block name="right_column"></%block>
             </div>
         </main>
 
