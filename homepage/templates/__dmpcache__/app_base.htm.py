@@ -5,7 +5,7 @@ STOP_RENDERING = runtime.STOP_RENDERING
 __M_dict_builtin = dict
 __M_locals_builtin = locals
 _magic_number = 10
-_modified_time = 1549666493.3227391
+_modified_time = 1549667343.9693065
 _enable_loop = True
 _template_filename = 'C:/Users/Rob/Desktop/BYU/Winter2019/413/project2class/homepage/templates/app_base.htm'
 _template_uri = 'app_base.htm'
@@ -30,14 +30,14 @@ def render_body(context,**pageargs):
     __M_caller = context.caller_stack._push_frame()
     try:
         __M_locals = __M_dict_builtin(pageargs=pageargs)
-        def left_column():
-            return render_left_column(context._locals(__M_locals))
+        request = context.get('request', UNDEFINED)
         def navbar_login():
             return render_navbar_login(context._locals(__M_locals))
+        self = context.get('self', UNDEFINED)
         def navbar_main():
             return render_navbar_main(context._locals(__M_locals))
-        request = context.get('request', UNDEFINED)
-        self = context.get('self', UNDEFINED)
+        def left_column():
+            return render_left_column(context._locals(__M_locals))
         __M_writer = context.writer()
         __M_writer('\r\n\r\n')
         if 'parent' not in context._data or not hasattr(context._data['parent'], 'navbar_main'):
@@ -63,10 +63,10 @@ def render_body(context,**pageargs):
 def render_navbar_main(context,**pageargs):
     __M_caller = context.caller_stack._push_frame()
     try:
-        def navbar_main():
-            return render_navbar_main(context)
         request = context.get('request', UNDEFINED)
         self = context.get('self', UNDEFINED)
+        def navbar_main():
+            return render_navbar_main(context)
         __M_writer = context.writer()
         __M_writer('\r\n    <li class="nav-item ')
         __M_writer(django_mako_plus.ExpressionPostProcessor(self)( 'active' if request.dmp.page == 'index' else '' ))
@@ -96,9 +96,9 @@ def render_left_column(context,**pageargs):
     __M_caller = context.caller_stack._push_frame()
     try:
         request = context.get('request', UNDEFINED)
+        self = context.get('self', UNDEFINED)
         def left_column():
             return render_left_column(context)
-        self = context.get('self', UNDEFINED)
         __M_writer = context.writer()
         __M_writer('\r\n    <p class="nav-item ')
         __M_writer(django_mako_plus.ExpressionPostProcessor(self)( 'active' if request.dmp.page == 'index' else '' ))

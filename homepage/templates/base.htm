@@ -33,7 +33,7 @@
                 <nav class="navbar navbar-expand-lg navbar-light bg-light">
                     ## Navbar Items Block
                     <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                        <ul class="navbar-nav mr-auto">
+                        <ul class="navbar-nav mr-auto ${ 'active' if request.dmp.page == 'AutoGrader' else '' }">
                             <li class="nav-item"><img class="site_icon" src="${ STATIC_URL }homepage/media/django.png"></a></li>
                             <%block name="navbar_main"></%block>
                         </ul>
