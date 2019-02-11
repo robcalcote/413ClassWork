@@ -40,6 +40,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'django_mako_plus',
     'homepage',
+    'account',
 ]
 
 MIDDLEWARE = [
@@ -92,6 +93,7 @@ TEMPLATES = [
 
 WSGI_APPLICATION = 'project2class.wsgi.application'
 
+AUTH_USER_MODEL = 'account.User'
 
 # Database
 # https://docs.djangoproject.com/en/2.1/ref/settings/#databases
