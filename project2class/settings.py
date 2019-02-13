@@ -103,7 +103,11 @@ DATABASES = {
         'ENGINE': 'django.db.backends.postgresql',
         'NAME': 'Sprint2',
         'USER': 'postgres',
-        'PASSWORD': '*********',
+        'PASSWORD' = ''
+            try:
+                from dev_settings import *
+            except ImportError:
+                pass,
         'HOST': '127.0.0.1',
         'PORT': '5432',
     }

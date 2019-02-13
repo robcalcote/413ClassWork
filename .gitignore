@@ -10,13 +10,17 @@ homepage/templates/__dmpcache__/__pycache__
 *.scss.css
 *.scss.css.map
 
-### Django ###
+## Django ##
 *.log
 *.pot
 *.pyc
 __pycache__/
 local_settings.py
 db.sqlite3
+
+## Dev_settings ##
+## This stores your database password so that Github can't have it ##
+dev_settings.py
 
 # If your build process includes running collectstatic, then you probably don't need or want to include staticfiles/
 # in your Git repository. Update and uncomment the following line accordingly.
