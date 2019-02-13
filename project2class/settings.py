@@ -100,9 +100,12 @@ AUTH_USER_MODEL = 'account.User'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.postgres',
+        'ENGINE': 'django.db.backends.postgresql',
+        'NAME': 'Sprint2',
+        'USER': 'postgres',
+        'PASSWORD': '*********',
         'HOST': '127.0.0.1',
-        'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
+        'PORT': '5432',
     }
 }
 
