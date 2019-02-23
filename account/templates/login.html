@@ -1,0 +1,26 @@
+<%inherit file="app_base.htm" />
+
+## Title
+<%block name="title">Login</%block>
+
+## Page Title
+<%block name="site_title">
+    ${ request.dmp.page }
+</%block>
+
+## Content
+<%block name="center_content">
+    <div class="content">
+        <p>Sprint 2 - Logins and User authentication</p>
+    </div>
+    <div class="login_form">
+        <form method="post">
+            <table>
+                ${ form.as_table() }
+            </table>
+            <input type="submit" value="Submit" />
+        </form>
+    </div>
+</%block>
+
+<%block name="right_column"></%block>
