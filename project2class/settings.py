@@ -100,14 +100,10 @@ AUTH_USER_MODEL = 'account.User'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.postgresql',
+        'ENGINE': 'django.db.backends.postgresql_psycopg2',
         'NAME': 'Sprint2',
         'USER': 'postgres',
-        'PASSWORD' = ''
-            try:
-                from dev_settings import *
-            except ImportError:
-                pass,
+        'PASSWORD': 'password123',
         'HOST': '127.0.0.1',
         'PORT': '5432',
     }
