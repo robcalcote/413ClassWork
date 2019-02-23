@@ -28,3 +28,4 @@
         date_joined: 2019-02-13 20:10:14.757379+00:00
         groups: []
         user_permissions: []
+-   mode: account.group

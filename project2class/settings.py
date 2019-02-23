@@ -93,6 +93,7 @@ TEMPLATES = [
 
 WSGI_APPLICATION = 'project2class.wsgi.application'
 
+# This allows the program to authenticate our custom users
 AUTH_USER_MODEL = 'account.User'
 
 # Database
