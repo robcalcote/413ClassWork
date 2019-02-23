@@ -6,14 +6,6 @@ class AccounTests(TestCase):
 
     def test_user_get(self):
         u1 = amod.User.objects.get(id=1)
-        # BAD - usually never print things in a test if it works
-        # While developing tests, it's ok, just don't keep it after
-        # print('>>>>', u1.first_name)
-
-        # Another wrong way:
-        # if u1.first_name != 'Homer':
-            # print('Nope. Bad first name')
-
         # We are testing that the user with id=1 has the first name Homer
         self.assertEqual(u1.first_name, 'Hom2er', msg="Name should have been 'Homer'")
 
