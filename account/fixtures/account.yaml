@@ -4,28 +4,48 @@
         password: pbkdf2_sha256$120000$r4UxoaVLifez$pFlYCkqICFMNAqvE9y4iVVUoOnUoPNZhrDbJ3O+UGwk=
         last_login: null
         is_superuser: false
-        username: 'HomerS'
+        username: ''
         first_name: Homer
         last_name: Simpson
         email: home@simpsons.com
         is_staff: false
         is_active: true
         date_joined: 2019-02-13 20:10:14.757379+00:00
+        birth_date: 2000-02-02 20:10:14.000000+00:00
+        favorite_color: null
         groups: []
         user_permissions: []
 -   model: account.user
     pk: 2
     fields:
-        password: pbkdf2_sha256$120000$r4UxoaVLifez$pFlYCkqICFMNAqvE9y4iVVUoOnUoPNZhrDbJ3O+UGwk=
-        last_login: null
-        is_superuser: false
-        username: 'LukeS'
+        password: pbkdf2_sha256$120000$pgVF3Gfbeebm$S3UQE/dLi7rKOE9i9DLT3ARH2NZkVfTTBdPXj750KVE=
+        last_login: 2019-02-23 01:45:05.791471+00:00
+        is_superuser: true
+        username: postgres
         first_name: Luke
         last_name: Skywalker
-        email: luke@skywalker.com
-        is_staff: false
+        email: Luke@Skywalker.com
+        is_staff: true
         is_active: true
-        date_joined: 2019-02-13 20:10:14.757379+00:00
+        date_joined: 2019-02-23 01:44:15.299264+00:00
+        birth_date: null
+        favorite_color: null
         groups: []
         user_permissions: []
--   mode: account.group
+-   model: account.user
+    pk: 3
+    fields:
+        password: pbkdf2_sha256$120000$IHhA7TLU36La$3I2Z5a0yA0O7fiR4Z96UlErYJUf+3ZBLoi3jMZeSvfw=
+        last_login: null
+        is_superuser: false
+        username: robcalcote
+        first_name: rob
+        last_name: calcote
+        email: rob@calcote.com
+        is_staff: false
+        is_active: true
+        date_joined: 2019-02-23 21:21:38.995723+00:00
+        birth_date: 1992-02-26 12:00:00+00:00
+        favorite_color: Green
+        groups: []
+        user_permissions: []
