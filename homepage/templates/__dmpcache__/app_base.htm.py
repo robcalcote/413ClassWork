@@ -5,7 +5,7 @@ STOP_RENDERING = runtime.STOP_RENDERING
 __M_dict_builtin = dict
 __M_locals_builtin = locals
 _magic_number = 10
-_modified_time = 1549667343.9693065
+_modified_time = 1550968141.6693337
 _enable_loop = True
 _template_filename = 'C:/Users/Rob/Desktop/BYU/Winter2019/413/project2class/homepage/templates/app_base.htm'
 _template_uri = 'app_base.htm'
@@ -30,14 +30,14 @@ def render_body(context,**pageargs):
     __M_caller = context.caller_stack._push_frame()
     try:
         __M_locals = __M_dict_builtin(pageargs=pageargs)
-        request = context.get('request', UNDEFINED)
-        def navbar_login():
-            return render_navbar_login(context._locals(__M_locals))
         self = context.get('self', UNDEFINED)
-        def navbar_main():
-            return render_navbar_main(context._locals(__M_locals))
         def left_column():
             return render_left_column(context._locals(__M_locals))
+        request = context.get('request', UNDEFINED)
+        def navbar_main():
+            return render_navbar_main(context._locals(__M_locals))
+        def navbar_login():
+            return render_navbar_login(context._locals(__M_locals))
         __M_writer = context.writer()
         __M_writer('\r\n\r\n')
         if 'parent' not in context._data or not hasattr(context._data['parent'], 'navbar_main'):
@@ -63,8 +63,8 @@ def render_body(context,**pageargs):
 def render_navbar_main(context,**pageargs):
     __M_caller = context.caller_stack._push_frame()
     try:
-        request = context.get('request', UNDEFINED)
         self = context.get('self', UNDEFINED)
+        request = context.get('request', UNDEFINED)
         def navbar_main():
             return render_navbar_main(context)
         __M_writer = context.writer()
@@ -86,7 +86,7 @@ def render_navbar_login(context,**pageargs):
         def navbar_login():
             return render_navbar_login(context)
         __M_writer = context.writer()
-        __M_writer('\r\n  <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">\r\n    Welcome, User\r\n  </button>\r\n  <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">\r\n    <a class="dropdown-item" href="#">Your Account</a>\r\n    <a class="dropdown-item" href="#">Settings</a>\r\n    <a class="dropdown-item" href="#">Logout</a>\r\n  </div>\r\n')
+        __M_writer('\r\n  <a class="nav-link" href="/account/login/">\r\n    <button class="btn btn-secondary" type="button" id="dropdownMenuButton">\r\n      Login\r\n    </button>\r\n  </a>\r\n')
         return ''
     finally:
         context.caller_stack._pop_frame()
@@ -95,8 +95,8 @@ def render_navbar_login(context,**pageargs):
 def render_left_column(context,**pageargs):
     __M_caller = context.caller_stack._push_frame()
     try:
-        request = context.get('request', UNDEFINED)
         self = context.get('self', UNDEFINED)
+        request = context.get('request', UNDEFINED)
         def left_column():
             return render_left_column(context)
         __M_writer = context.writer()
@@ -114,6 +114,6 @@ def render_left_column(context,**pageargs):
 
 """
 __M_BEGIN_METADATA
-{"filename": "C:/Users/Rob/Desktop/BYU/Winter2019/413/project2class/homepage/templates/app_base.htm", "uri": "app_base.htm", "source_encoding": "utf-8", "line_map": {"29": 0, "42": 1, "47": 12, "52": 23, "57": 32, "63": 5, "71": 5, "72": 6, "73": 6, "74": 8, "75": 8, "76": 10, "77": 10, "83": 14, "89": 14, "95": 25, "103": 25, "104": 26, "105": 26, "106": 28, "107": 28, "108": 30, "109": 30, "115": 109}}
+{"filename": "C:/Users/Rob/Desktop/BYU/Winter2019/413/project2class/homepage/templates/app_base.htm", "uri": "app_base.htm", "source_encoding": "utf-8", "line_map": {"29": 0, "42": 1, "47": 12, "52": 20, "57": 29, "63": 5, "71": 5, "72": 6, "73": 6, "74": 8, "75": 8, "76": 10, "77": 10, "83": 14, "89": 14, "95": 22, "103": 22, "104": 23, "105": 23, "106": 25, "107": 25, "108": 27, "109": 27, "115": 109}}
 __M_END_METADATA
 """

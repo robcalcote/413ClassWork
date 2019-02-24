@@ -22,7 +22,7 @@ Sprint 2 is about your account app, user object, login and logout.
 |# # Unit Tests             |
 -----------------------------
 # # Create fixtures file with users, groups, permissions
-# # Unit test to create a user, set data, save, then load again and compare.
+#X# Unit test to create a user, set data, save, then load again and compare.
 # # Unit test for login and logout
 # # Unit test for group permissions
 # # Unit test for users and groups
@@ -44,26 +44,26 @@ Sprint 2 is about your account app, user object, login and logout.
 -----------------------------
 |# #  New app: `account`    |
 -----------------------------
-# # app_base.htm (inherits from /homepage/templates/base.htm)
+#X# app_base.htm (inherits from /homepage/templates/base.htm)
 # # If logged out, /homepage/templates/base.htm shows "Login" link to /account/login/
 # # If logged in, /homepage/templates/base.htm shows "Account" dropdown with "Logout" link.
 
 -----------------------------
-|# #  /account/login/       |
+|#X#  /account/login/       |
 -----------------------------
-# # /account/views/login.py and /account/templates/login.html
-# # Django form
-# # `if request.method == 'POST'` logic
-# #    authenticate()
-# #    raise forms.ValidationError if authenticate fails
-# #    login() if authenticate succeeds
-# #    redirect to home page
-# # HT  template shows form
-# #    action is empty (same url)
-# #    method is POST
+#X# /account/views/login.py and /account/templates/login.html
+#X# Django form
+#X# `if request.method == 'POST'` logic
+#X#    authenticate()
+#X#    raise forms.ValidationError if authenticate fails
+#X#    login() if authenticate succeeds
+#X#    redirect to home page
+#X# HT  template shows form
+#X#    action is empty (same url)
+#X#    method is POST
 
 -----------------------------
-|# #  /account/logout/      |
+|#X#  /account/logout/      |
 -----------------------------
-# # /account/views/logout.py
-# # redirect to /account/login/
+#X# /account/views/logout.py
+#X# redirect to /account/login/
