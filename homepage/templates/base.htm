@@ -39,17 +39,17 @@
                         </ul>
                         <div class="dropdown">
                             <%block name="navbar_login">
-                                % if Login == false:
-                                    <a class="button btn btn-secondary" type="button" 
-                                    id="dropdownMenuButton" href="/account/login/">Login</a>
-                                % else:
+                                % if user.is_authenticated:                               
                                     <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                     Welcome, User (Change later)
                                     </button>
                                     <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
                                     <a class="dropdown-item" href="#">Your Account</a>
                                     <a class="dropdown-item" href="#">Settings</a>
-                                    <a class="dropdown-item" href="/">Logout</a>
+                                    <a class="dropdown-item" href="/">Logout</a>                                    
+                                % else:
+                                    <a class="button btn btn-secondary" type="button" 
+                                    id="dropdownMenuButton" href="/account/login/">Login</a>
                                 % endif
                                 </div>
                             </%block>
