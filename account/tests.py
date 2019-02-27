@@ -67,4 +67,11 @@ class LoginExisting(TestCase):
         self.assertTrue(request.user.is_authenticated, msg="User should have authenticated")
         self.assertEqual(request.user.id, self.rob.id, msg="User should have been robcalcote")
         self.assertEqual(response.status_code, 302, msg="User wasn't redirected")
+    def test_user_logout(self):
+        response = self.client.logout()
 
+class GroupTests(TestCase):
+    fixtures = [ 'groups.yaml' ]
+
+class GroupTests(TestCase):
+    fixtures = [ 'permissions.yaml' ]

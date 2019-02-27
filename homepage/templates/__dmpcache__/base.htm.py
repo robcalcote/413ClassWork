@@ -5,7 +5,7 @@ STOP_RENDERING = runtime.STOP_RENDERING
 __M_dict_builtin = dict
 __M_locals_builtin = locals
 _magic_number = 10
-_modified_time = 1551128314.781798
+_modified_time = 1551237439.8183122
 _enable_loop = True
 _template_filename = 'C:/Users/Rob/Desktop/BYU/Winter2019/413/project2class/homepage/templates/base.htm'
 _template_uri = 'base.htm'
@@ -21,23 +21,23 @@ def render_body(context,**pageargs):
     __M_caller = context.caller_stack._push_frame()
     try:
         __M_locals = __M_dict_builtin(pageargs=pageargs)
-        def navbar_main():
-            return render_navbar_main(context._locals(__M_locals))
-        STATIC_URL = context.get('STATIC_URL', UNDEFINED)
-        def right_column():
-            return render_right_column(context._locals(__M_locals))
-        def left_column():
-            return render_left_column(context._locals(__M_locals))
-        def navbar_login():
-            return render_navbar_login(context._locals(__M_locals))
-        def center_content():
-            return render_center_content(context._locals(__M_locals))
         def title():
             return render_title(context._locals(__M_locals))
+        def navbar_login():
+            return render_navbar_login(context._locals(__M_locals))
+        def right_column():
+            return render_right_column(context._locals(__M_locals))
+        STATIC_URL = context.get('STATIC_URL', UNDEFINED)
+        def left_column():
+            return render_left_column(context._locals(__M_locals))
+        def center_content():
+            return render_center_content(context._locals(__M_locals))
         request = context.get('request', UNDEFINED)
+        def navbar_main():
+            return render_navbar_main(context._locals(__M_locals))
+        self = context.get('self', UNDEFINED)
         def site_title():
             return render_site_title(context._locals(__M_locals))
-        self = context.get('self', UNDEFINED)
         __M_writer = context.writer()
         __M_writer('<!DOCTYPE html>\r\n<html>\r\n    <meta charset="UTF-8">\r\n    <head>\r\n\r\n')
         __M_writer('        <title>Sprint 1 - ')
@@ -132,13 +132,13 @@ def render_navbar_main(context,**pageargs):
 def render_navbar_login(context,**pageargs):
     __M_caller = context.caller_stack._push_frame()
     try:
+        request = context.get('request', UNDEFINED)
         def navbar_login():
             return render_navbar_login(context)
-        request = context.get('request', UNDEFINED)
         __M_writer = context.writer()
         __M_writer('\r\n')
         if request.user.is_authenticated:                               
-            __M_writer('                                    <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">\r\n                                    Welcome, User (Change later)\r\n                                    </button>\r\n                                    <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">\r\n                                    <a class="dropdown-item" href="#">Your Account</a>\r\n                                    <a class="dropdown-item" href="#">Settings</a>\r\n                                    <a class="dropdown-item" href="/account/logout/">Logout</a>                                    \r\n')
+            __M_writer('                                    <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">\r\n                                    Account\r\n                                    </button>\r\n                                    <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">\r\n                                    <a class="dropdown-item" href="#">Your Account</a>\r\n                                    <a class="dropdown-item" href="#">Settings</a>\r\n                                    <a class="dropdown-item" href="/account/logout/">Logout</a>                                    \r\n')
         else:
             __M_writer('                                    <a class="button btn btn-secondary" type="button" \r\n                                    id="dropdownMenuButton" href="/account/login/">Login</a>\r\n')
         __M_writer('                                </div>\r\n                            ')

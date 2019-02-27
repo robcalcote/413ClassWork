@@ -21,9 +21,9 @@ Sprint 2 is about your account app, user object, login and logout.
 -----------------------------
 |# # Unit Tests             |
 -----------------------------
-# # Create fixtures file with users, groups, permissions
+#X# Create fixtures file with users, groups, permissions
 #X# Unit test to create a user, set data, save, then load again and compare.
-# # Unit test for login and logout
+#X# Unit test for login and logout
 # # Unit test for group permissions
 # # Unit test for users and groups
 # # Unit test for changing password
@@ -42,11 +42,11 @@ Sprint 2 is about your account app, user object, login and logout.
 #X# django_migrations
 
 -----------------------------
-|# #  New app: `account`    |
+|#X#  New app: `account`    |
 -----------------------------
 #X# app_base.htm (inherits from /homepage/templates/base.htm)
-# # If logged out, /homepage/templates/base.htm shows "Login" link to /account/login/
-# # If logged in, /homepage/templates/base.htm shows "Account" dropdown with "Logout" link.
+#X# If logged out, /homepage/templates/base.htm shows "Login" link to /account/login/
+#X# If logged in, /homepage/templates/base.htm shows "Account" dropdown with "Logout" link.
 
 -----------------------------
 |#X#  /account/login/       |

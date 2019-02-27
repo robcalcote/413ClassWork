@@ -15,4 +15,3 @@ class User(AbstractUser):
     # date_joined
     birth_date = models.DateTimeField("User Birth Date", null=True)
     favorite_color = models.TextField("User Favorite Color", null=True)
-    
