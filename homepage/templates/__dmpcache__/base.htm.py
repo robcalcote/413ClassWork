@@ -5,7 +5,7 @@ STOP_RENDERING = runtime.STOP_RENDERING
 __M_dict_builtin = dict
 __M_locals_builtin = locals
 _magic_number = 10
-_modified_time = 1551047367.3662705
+_modified_time = 1551128314.781798
 _enable_loop = True
 _template_filename = 'C:/Users/Rob/Desktop/BYU/Winter2019/413/project2class/homepage/templates/base.htm'
 _template_uri = 'base.htm'
@@ -21,25 +21,23 @@ def render_body(context,**pageargs):
     __M_caller = context.caller_stack._push_frame()
     try:
         __M_locals = __M_dict_builtin(pageargs=pageargs)
-        def navbar_login():
-            return render_navbar_login(context._locals(__M_locals))
-        true = context.get('true', UNDEFINED)
-        def site_title():
-            return render_site_title(context._locals(__M_locals))
-        def center_content():
-            return render_center_content(context._locals(__M_locals))
-        request = context.get('request', UNDEFINED)
-        def left_column():
-            return render_left_column(context._locals(__M_locals))
-        self = context.get('self', UNDEFINED)
         def navbar_main():
             return render_navbar_main(context._locals(__M_locals))
-        Login = context.get('Login', UNDEFINED)
-        def title():
-            return render_title(context._locals(__M_locals))
         STATIC_URL = context.get('STATIC_URL', UNDEFINED)
         def right_column():
             return render_right_column(context._locals(__M_locals))
+        def left_column():
+            return render_left_column(context._locals(__M_locals))
+        def navbar_login():
+            return render_navbar_login(context._locals(__M_locals))
+        def center_content():
+            return render_center_content(context._locals(__M_locals))
+        def title():
+            return render_title(context._locals(__M_locals))
+        request = context.get('request', UNDEFINED)
+        def site_title():
+            return render_site_title(context._locals(__M_locals))
+        self = context.get('self', UNDEFINED)
         __M_writer = context.writer()
         __M_writer('<!DOCTYPE html>\r\n<html>\r\n    <meta charset="UTF-8">\r\n    <head>\r\n\r\n')
         __M_writer('        <title>Sprint 1 - ')
@@ -134,16 +132,15 @@ def render_navbar_main(context,**pageargs):
 def render_navbar_login(context,**pageargs):
     __M_caller = context.caller_stack._push_frame()
     try:
-        Login = context.get('Login', UNDEFINED)
         def navbar_login():
             return render_navbar_login(context)
-        true = context.get('true', UNDEFINED)
+        request = context.get('request', UNDEFINED)
         __M_writer = context.writer()
         __M_writer('\r\n')
-        if Login == true:
-            __M_writer('                                    <a class="button btn btn-secondary" type="button" \r\n                                    id="dropdownMenuButton" href="/account/login/">Login</a>\r\n')
+        if request.user.is_authenticated:                               
+            __M_writer('                                    <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">\r\n                                    Welcome, User (Change later)\r\n                                    </button>\r\n                                    <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">\r\n                                    <a class="dropdown-item" href="#">Your Account</a>\r\n                                    <a class="dropdown-item" href="#">Settings</a>\r\n                                    <a class="dropdown-item" href="/account/logout/">Logout</a>                                    \r\n')
         else:
-            __M_writer('                                    <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">\r\n                                    Welcome, User (Change later)\r\n                                    </button>\r\n                                    <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">\r\n                                    <a class="dropdown-item" href="#">Your Account</a>\r\n                                    <a class="dropdown-item" href="#">Settings</a>\r\n                                    <a class="dropdown-item" href="/">Logout</a>\r\n')
+            __M_writer('                                    <a class="button btn btn-secondary" type="button" \r\n                                    id="dropdownMenuButton" href="/account/login/">Login</a>\r\n')
         __M_writer('                                </div>\r\n                            ')
         return ''
     finally:
@@ -196,6 +193,6 @@ def render_right_column(context,**pageargs):
 
 """
 __M_BEGIN_METADATA
-{"filename": "C:/Users/Rob/Desktop/BYU/Winter2019/413/project2class/homepage/templates/base.htm", "uri": "base.htm", "source_encoding": "utf-8", "line_map": {"18": 85, "20": 0, "44": 2, "45": 8, "50": 8, "51": 9, "52": 9, "53": 12, "54": 12, "55": 12, "56": 15, "57": 15, "58": 15, "59": 16, "60": 16, "61": 19, "62": 20, "63": 20, "64": 25, "65": 32, "66": 35, "67": 36, "68": 36, "69": 37, "70": 37, "75": 38, "80": 55, "81": 64, "86": 65, "87": 69, "88": 71, "93": 71, "98": 74, "103": 77, "104": 85, "105": 86, "106": 86, "112": 8, "123": 38, "134": 41, "142": 41, "143": 42, "144": 43, "145": 45, "146": 46, "147": 54, "153": 65, "164": 71, "175": 74, "186": 77, "197": 186}}
+{"filename": "C:/Users/Rob/Desktop/BYU/Winter2019/413/project2class/homepage/templates/base.htm", "uri": "base.htm", "source_encoding": "utf-8", "line_map": {"18": 85, "20": 0, "42": 2, "43": 8, "48": 8, "49": 9, "50": 9, "51": 12, "52": 12, "53": 12, "54": 15, "55": 15, "56": 15, "57": 16, "58": 16, "59": 19, "60": 20, "61": 20, "62": 25, "63": 32, "64": 35, "65": 36, "66": 36, "67": 37, "68": 37, "73": 38, "78": 55, "79": 64, "84": 65, "85": 69, "86": 71, "91": 71, "96": 74, "101": 77, "102": 85, "103": 86, "104": 86, "110": 8, "121": 38, "132": 41, "139": 41, "140": 42, "141": 43, "142": 50, "143": 51, "144": 54, "150": 65, "161": 71, "172": 74, "183": 77, "194": 183}}
 __M_END_METADATA
 """
