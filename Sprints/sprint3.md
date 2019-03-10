@@ -59,7 +59,7 @@ Management commands can be helpful here:
 
 #X# Export database to fixtures file: `python3 manage.py dumpdata --format yaml catalog > catalog/fixtures/catalog.yaml`
 #X# Import fixtures file into database: "python3 manage.py loaddata catalog/fixtures/catalog.yaml"
-
+ 
 |----------------------------|
 | # # `/catalog/templates    |
 |     /app_base.htm`         |
