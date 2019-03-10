@@ -1,0 +1,278 @@
+- model: catalog.category
+  pk: 2
+  fields: {name: dog, created: ! '2019-03-03 07:00:00', last_modified: ! '2019-03-03
+      07:00:00'}
+- model: catalog.category
+  pk: 3
+  fields: {name: drink, created: ! '2019-03-03 07:00:00', last_modified: ! '2019-03-03
+      07:00:00'}
+- model: catalog.category
+  pk: 4
+  fields: {name: instrument, created: ! '2019-03-03 07:00:00', last_modified: ! '2019-03-03
+      07:00:00'}
+- model: catalog.product
+  pk: 1
+  fields: {category: 2, status: A, name: puppy, description: a beautiful puppy that
+      will bring you smiles!, price: '100.00', quantity: 100, reorder_trigger: null,
+    reorder_quantity: 10, created: ! '2019-03-03 07:00:00', last_modified: ! '2019-03-03
+      07:00:00'}
+- model: catalog.product
+  pk: 2
+  fields: {category: 2, status: A, name: Golden Retriever, description: A good boy,
+    price: '100.00', quantity: 100, reorder_trigger: null, reorder_quantity: 10, created: ! '2019-03-03
+      07:00:00', last_modified: ! '2019-03-03 07:00:00'}
+- model: catalog.product
+  pk: 3
+  fields: {category: 2, status: A, name: Black Dog, description: A good boy, price: '100.00',
+    quantity: 100, reorder_trigger: null, reorder_quantity: 10, created: ! '2019-03-03
+      07:00:00', last_modified: ! '2019-03-03 07:00:00'}
+- model: catalog.product
+  pk: 4
+  fields: {category: 2, status: A, name: Curly Dog, description: A good boy, price: '100.00',
+    quantity: 100, reorder_trigger: null, reorder_quantity: 10, created: ! '2019-03-03
+      07:00:00', last_modified: ! '2019-03-03 07:00:00'}
+- model: catalog.product
+  pk: 5
+  fields: {category: 2, status: A, name: White Dog, description: A good boy, price: '100.00',
+    quantity: 100, reorder_trigger: null, reorder_quantity: 10, created: ! '2019-03-03
+      07:00:00', last_modified: ! '2019-03-03 07:00:00'}
+- model: catalog.product
+  pk: 6
+  fields: {category: 2, status: A, name: Fluffy Dog, description: A good boy, price: '100.00',
+    quantity: 100, reorder_trigger: null, reorder_quantity: 10, created: ! '2019-03-03
+      07:00:00', last_modified: ! '2019-03-03 07:00:00'}
+- model: catalog.product
+  pk: 7
+  fields: {category: 2, status: I, name: Weiner Dog, description: A good boy, price: '100.00',
+    quantity: 100, reorder_trigger: null, reorder_quantity: 10, created: ! '2019-03-03
+      07:00:00', last_modified: ! '2019-03-03 07:00:00'}
+- model: catalog.product
+  pk: 8
+  fields: {category: 2, status: I, name: Lost Dog, description: A good boy, price: '100.00',
+    quantity: 100, reorder_trigger: null, reorder_quantity: 10, created: ! '2019-03-03
+      07:00:00', last_modified: ! '2019-03-03 07:00:00'}
+- model: catalog.product
+  pk: 9
+  fields: {category: 3, status: A, name: Yummy Juice, description: The best, price: '25.00',
+    quantity: 1000, reorder_trigger: null, reorder_quantity: 50, created: ! '2019-03-03
+      07:00:00', last_modified: ! '2019-03-03 07:00:00'}
+- model: catalog.product
+  pk: 10
+  fields: {category: 3, status: A, name: Fruity Juice, description: loaded with vitamin
+      C, price: '15.00', quantity: 500, reorder_trigger: null, reorder_quantity: 20,
+    created: ! '2019-03-03 07:00:00', last_modified: ! '2019-03-03 07:00:00'}
+- model: catalog.product
+  pk: 11
+  fields: {category: 3, status: A, name: Forbidden Juice, description: Dont let mom
+      see!, price: '250.00', quantity: 70, reorder_trigger: null, reorder_quantity: 5,
+    created: ! '2019-03-03 07:00:00', last_modified: ! '2019-03-03 07:00:00'}
+- model: catalog.product
+  pk: 12
+  fields: {category: 3, status: A, name: Juice Mixing Kit, description: Make the yummiest
+      of juices today, price: '200.00', quantity: 50, reorder_trigger: null, reorder_quantity: 5,
+    created: ! '2019-03-03 07:00:00', last_modified: ! '2019-03-03 07:00:00'}
+- model: catalog.product
+  pk: 13
+  fields: {category: 3, status: A, name: Tart Juice, description: pucker up - very
+      tart, price: '100.00', quantity: 100, reorder_trigger: null, reorder_quantity: 10,
+    created: ! '2019-03-03 07:00:00', last_modified: ! '2019-03-03 07:00:00'}
+- model: catalog.product
+  pk: 14
+  fields: {category: 3, status: A, name: Energy Juice, description: never sleep again,
+    price: '100.00', quantity: 100, reorder_trigger: null, reorder_quantity: 10, created: ! '2019-03-03
+      07:00:00', last_modified: ! '2019-03-03 07:00:00'}
+- model: catalog.product
+  pk: 15
+  fields: {category: 3, status: I, name: Energy Supplements, description: helps individuals
+      develop super powers, price: '100.00', quantity: 100, reorder_trigger: null,
+    reorder_quantity: 10, created: ! '2019-03-03 07:00:00', last_modified: ! '2019-03-03
+      07:00:00'}
+- model: catalog.product
+  pk: 16
+  fields: {category: 3, status: I, name: Sour Juice, description: 'is it edible?',
+    price: '100.00', quantity: 100, reorder_trigger: null, reorder_quantity: 10, created: ! '2019-03-03
+      07:00:00', last_modified: ! '2019-03-03 07:00:00'}
+- model: catalog.product
+  pk: 17
+  fields: {category: 4, status: A, name: Trumpet, description: Shiny!, price: '25.00',
+    quantity: 1000, reorder_trigger: null, reorder_quantity: 50, created: ! '2019-03-03
+      07:00:00', last_modified: ! '2019-03-03 07:00:00'}
+- model: catalog.product
+  pk: 18
+  fields: {category: 4, status: A, name: Guitar, description: Signed by Jimi Hendrix,
+    price: '5000.00', quantity: 5, reorder_trigger: null, reorder_quantity: 1, created: ! '2019-03-03
+      07:00:00', last_modified: ! '2019-03-03 07:00:00'}
+- model: catalog.product
+  pk: 19
+  fields: {category: 4, status: A, name: French Horn, description: Impress the ladies!,
+    price: '250.00', quantity: 70, reorder_trigger: null, reorder_quantity: 5, created: ! '2019-03-03
+      07:00:00', last_modified: ! '2019-03-03 07:00:00'}
+- model: catalog.product
+  pk: 20
+  fields: {category: 4, status: A, name: Trinkets, description: keeps kids busy for
+      hours, price: '20.00', quantity: 50, reorder_trigger: null, reorder_quantity: 5,
+    created: ! '2019-03-03 07:00:00', last_modified: ! '2019-03-03 07:00:00'}
+- model: catalog.product
+  pk: 21
+  fields: {category: 4, status: A, name: Flute, description: learn kids songs today,
+    price: '1000.00', quantity: 100, reorder_trigger: null, reorder_quantity: 10,
+    created: ! '2019-03-03 07:00:00', last_modified: ! '2019-03-03 07:00:00'}
+- model: catalog.product
+  pk: 22
+  fields: {category: 4, status: A, name: Mellophone, description: Shiny!, price: '1000.00',
+    quantity: 100, reorder_trigger: null, reorder_quantity: 10, created: ! '2019-03-03
+      07:00:00', last_modified: ! '2019-03-03 07:00:00'}
+- model: catalog.product
+  pk: 23
+  fields: {category: 4, status: I, name: Obo, description: 'pretty cool instrument
+      right?', price: '1000.00', quantity: 100, reorder_trigger: null, reorder_quantity: 10,
+    created: ! '2019-03-03 07:00:00', last_modified: ! '2019-03-03 07:00:00'}
+- model: catalog.product
+  pk: 24
+  fields: {category: 4, status: I, name: Drums, description: discontinued, price: '750.00',
+    quantity: 100, reorder_trigger: null, reorder_quantity: 10, created: ! '2019-03-03
+      07:00:00', last_modified: ! '2019-03-03 07:00:00'}
+- model: catalog.productimage
+  pk: 1
+  fields: {product: 2, filename: dog1-1.jpg}
+- model: catalog.productimage
+  pk: 2
+  fields: {product: 2, filename: dog1-2.jpg}
+- model: catalog.productimage
+  pk: 3
+  fields: {product: 1, filename: dog2-1.jpg}
+- model: catalog.productimage
+  pk: 4
+  fields: {product: 1, filename: dog2-2.jpg}
+- model: catalog.productimage
+  pk: 5
+  fields: {product: 3, filename: dog3-1.jpg}
+- model: catalog.productimage
+  pk: 6
+  fields: {product: 3, filename: dog3-2.jpg}
+- model: catalog.productimage
+  pk: 7
+  fields: {product: 4, filename: dog4-1.jpg}
+- model: catalog.productimage
+  pk: 8
+  fields: {product: 4, filename: dog4-2.jpg}
+- model: catalog.productimage
+  pk: 9
+  fields: {product: 5, filename: dog5-1.jpg}
+- model: catalog.productimage
+  pk: 10
+  fields: {product: 5, filename: dog5-2.jpg}
+- model: catalog.productimage
+  pk: 11
+  fields: {product: 6, filename: dog6-1.jpg}
+- model: catalog.productimage
+  pk: 12
+  fields: {product: 6, filename: dog6-2.jpg}
+- model: catalog.productimage
+  pk: 13
+  fields: {product: 7, filename: dog7-1.jpg}
+- model: catalog.productimage
+  pk: 14
+  fields: {product: 7, filename: dog7-2.jpg}
+- model: catalog.productimage
+  pk: 15
+  fields: {product: 8, filename: notfound.jpg}
+- model: catalog.productimage
+  pk: 16
+  fields: {product: 8, filename: notfound.jpg}
+- model: catalog.productimage
+  pk: 17
+  fields: {product: 9, filename: drink1-1.jpg}
+- model: catalog.productimage
+  pk: 18
+  fields: {product: 9, filename: drink1-2.jpg}
+- model: catalog.productimage
+  pk: 19
+  fields: {product: 10, filename: drink2-1.jpg}
+- model: catalog.productimage
+  pk: 20
+  fields: {product: 10, filename: drink2-2.jpg}
+- model: catalog.productimage
+  pk: 21
+  fields: {product: 11, filename: drink3-1.jpg}
+- model: catalog.productimage
+  pk: 22
+  fields: {product: 11, filename: drink3-2.jpg}
+- model: catalog.productimage
+  pk: 23
+  fields: {product: 12, filename: drink4-1.jpg}
+- model: catalog.productimage
+  pk: 24
+  fields: {product: 12, filename: drink4-2.jpg}
+- model: catalog.productimage
+  pk: 25
+  fields: {product: 13, filename: drink5-1.jpg}
+- model: catalog.productimage
+  pk: 26
+  fields: {product: 13, filename: drink5-2.jpg}
+- model: catalog.productimage
+  pk: 27
+  fields: {product: 14, filename: drink6-1.jpg}
+- model: catalog.productimage
+  pk: 28
+  fields: {product: 14, filename: drink6-2.jpg}
+- model: catalog.productimage
+  pk: 29
+  fields: {product: 15, filename: drink7-1.jpg}
+- model: catalog.productimage
+  pk: 30
+  fields: {product: 15, filename: drink7-2.jpg}
+- model: catalog.productimage
+  pk: 31
+  fields: {product: 16, filename: notfound.jpg}
+- model: catalog.productimage
+  pk: 32
+  fields: {product: 16, filename: notfound.jpg}
+- model: catalog.productimage
+  pk: 33
+  fields: {product: 17, filename: instrument1-1.jpg}
+- model: catalog.productimage
+  pk: 34
+  fields: {product: 17, filename: instrument1-2.jpg}
+- model: catalog.productimage
+  pk: 35
+  fields: {product: 18, filename: instrument2-1.jpg}
+- model: catalog.productimage
+  pk: 36
+  fields: {product: 18, filename: instrument2-2.jpg}
+- model: catalog.productimage
+  pk: 37
+  fields: {product: 19, filename: instrument3-1.jpg}
+- model: catalog.productimage
+  pk: 38
+  fields: {product: 19, filename: instrument3-2.jpg}
+- model: catalog.productimage
+  pk: 39
+  fields: {product: 20, filename: instrument4-1.jpg}
+- model: catalog.productimage
+  pk: 40
+  fields: {product: 20, filename: instrument4-2.jpg}
+- model: catalog.productimage
+  pk: 41
+  fields: {product: 21, filename: instrument5-1.jpg}
+- model: catalog.productimage
+  pk: 42
+  fields: {product: 21, filename: instrument5-2.jpg}
+- model: catalog.productimage
+  pk: 43
+  fields: {product: 22, filename: instrument6-1.jpg}
+- model: catalog.productimage
+  pk: 44
+  fields: {product: 22, filename: instrument6-2.jpg}
+- model: catalog.productimage
+  pk: 45
+  fields: {product: 23, filename: instrument7-1.jpg}
+- model: catalog.productimage
+  pk: 46
+  fields: {product: 23, filename: instrument7-2.jpg}
+- model: catalog.productimage
+  pk: 47
+  fields: {product: 24, filename: notfound.jpg}
+- model: catalog.productimage
+  pk: 48
+  fields: {product: 24, filename: notfound.jpg}

@@ -18,7 +18,7 @@ Sprint 3 is about the /catalog/ app, product models, recent views, and shopping 
   #X# name - models.TextField
 
 |----------------------------|
-| # # Product Model          |
+| #X# Product Model          |
 |----------------------------|
 #X# Create in /catalog/models.py -> class Product(models.Model)
 #X# Required fields:
@@ -31,34 +31,34 @@ Sprint 3 is about the /catalog/ app, product models, recent views, and shopping 
   #X# quantity (current in stock) - models.IntegerField
   #X# reorder_trigger (when we reorder) - models.IntegerField
   #X# reorder_quantity (how many we order) - models.IntegerField
-# # Required methods:
-  # # image_url(self) - return an absolute URL to the first image for this product, or if no ProductImage records, the "no image available" image. The return will be something like: `settings.STATIC_URL + "catalog/media/products/rustic-violin.jpg"`
-  # # images_url(self) - return a list of absolute URLs to the images for this product, or if no ProductImage records, a list of one item: the "no image available" image.
+#X# Required methods:
+  #X# image_url(self) - return an absolute URL to the first image for this product, or if no ProductImage records, the "no image available" image. The return will be something like: `settings.STATIC_URL + "catalog/media/products/rustic-violin.jpg"`
+  #X# images_url(self) - return a list of absolute URLs to the images for this product, or if no ProductImage records, a list of one item: the "no image available" image.
 
 |----------------------------|
-| # # ProductImage Model     |
+| #X# ProductImage Model     |
 |----------------------------|
 #X# Create in /catalog/models.py -> class ProductImage(models.Model)
 #X# Required Fields:
   #X# filename - models.TextField(), example: "violin.jpg"
   #X# product (1-M foreign key to Product model) - models.ForeignKey
-# # Required Methods
-  # # image_url(self) - return an absolute URL to this image. The return will be something like: `settings.STATIC_URL + "catalog/media/products/rustic-violin.jpg"`. If no images available, return something like: `settings.STATIC_URL + "catalog/media/products/notfound.jpg"`
+#X# Required Methods
+  #X# image_url(self) - return an absolute URL to this image. The return will be something like: `settings.STATIC_URL + "catalog/media/products/rustic-violin.jpg"`. If no images available, return something like: `settings.STATIC_URL + "catalog/media/products/notfound.jpg"`
 
 |----------------------------|
-| # # Fixtures               |
+| #X# Fixtures               |
 |----------------------------|
-# # Create a fixtures file in /catalog/fixtures/catalog.yaml or /catalog/fixtures/catalog.json
-  # # 3+ categories
-  # # 6+ active products per category
-  # # 1+ inactive products
-  # # 2+ product images per product
-    # # Except one product should have no images (it will display the "no image available" default image).
+#X# Create a fixtures file in /catalog/fixtures/catalog.yaml or /catalog/fixtures/catalog.json
+  #X# 3+ categories
+  #X# 6+ active products per category
+  #X# 1+ inactive products
+  #X# 2+ product images per product
+    #X# Except one product should have no images (it will display the "no image available" default image).
 
 Management commands can be helpful here:
 
-# # Export database to fixtures file: `python3 manage.py dumpdata --format yaml catalog > catalog/fixtures/catalog.yaml`
-# # Import fixtures file into database: "python3 manage.py loaddata catalog/fixtures/catalog.yaml"
+#X# Export database to fixtures file: `python3 manage.py dumpdata --format yaml catalog > catalog/fixtures/catalog.yaml`
+#X# Import fixtures file into database: "python3 manage.py loaddata catalog/fixtures/catalog.yaml"
 
 |----------------------------|
 | # # `/catalog/templates    |
@@ -73,7 +73,7 @@ Management commands can be helpful here:
 # # All pages in the catalog app extend from this template
 
 |----------------------------|
-| # # List of Products (Category) Page: `/catalog/index/<category id>/<page number>/`          |
+| # # List of Products (Category) Page: `/catalog/index/<category id>/<page number>/`   
 |----------------------------|
 # # Shows product tiles for the given category
   # # Only products with "active" status are shown

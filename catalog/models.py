@@ -47,7 +47,7 @@ class Product(models.Model):
     price = models.DecimalField("product price", max_digits=6, decimal_places=2, null=True)
     quantity = models.IntegerField("current stock quantity", null=True)
     #! Not quite sure how this one is supposed to work yet... !#
-    reorder_trigger = models.IntegerField()
+    reorder_trigger = models.IntegerField(null=True)
     reorder_quantity = models.IntegerField("stock replenishment quantity", null=True)
     created = models.DateTimeField("created date", auto_now_add=True)
     last_modified = models.DateTimeField("modified date", auto_now=True)
