@@ -23,8 +23,8 @@ class Category(models.Model):
     name = models.TextField(verbose_name="category name")
     ## auto_now_add - updates when created
     ## auto_now - updates every time save() is called
-    created = models.DatetimeField("created date", auto_now_add=True)
-    last_modified = models.DatetimeField("modified date", auto_now=True)
+    created = models.DateTimeField("created date", auto_now_add=True)
+    last_modified = models.DateTimeField("modified date", auto_now=True)
 
 ##  Product can have 1 and only 1 Category
 ##  Product can have many ProductImages
@@ -48,9 +48,9 @@ class Product(models.Model):
     quantity = models.IntegerField("current stock quantity", null=True)
     #! Not quite sure how this one is supposed to work yet... !#
     reorder_trigger = models.IntegerField()
-    reorder_quantity = mdoels.IntegerField("stock replenishment quantity", null=True)
-    created = models.DatetimeField("created date", auto_now_add=True)
-    last_modified = models.DatetimeField("modified date", auto_now=True)
+    reorder_quantity = models.IntegerField("stock replenishment quantity", null=True)
+    created = models.DateTimeField("created date", auto_now_add=True)
+    last_modified = models.DateTimeField("modified date", auto_now=True)
     ## db_index=True adds an index to optimize searching if you plan on querying by thise column
     ### the downside is that everytime you do an insert, indexes need to be updated
     ## choices= is where you set the choices that can be selected
@@ -68,7 +68,7 @@ class Product(models.Model):
 class ProductImage(models.Model):
     # deletion of product from db will set foreign key for product on image to null
     product = models.ForeignKey(Product, verbose_name="image's product", 
-    on_delete=SET_NULL, null=True)
+    on_delete=models.SET_NULL, null=True)
     # Example: "violin.jpg"
     filename = models.TextField("product image filename")
 
