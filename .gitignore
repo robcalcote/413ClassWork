@@ -6,6 +6,9 @@
 ## These are manually added by me as I discover more about the DMP structure ##
 homepage/templates/__dmpcache__/*
 account/templates/__dmpcache__/*
+*~
+*.swp
+*.swo
 
 ## SCSS ##
 *.scss.css

@@ -59,19 +59,33 @@ class Product(models.Model):
     #### REQUIRED PRODUCT METHODS ####
     def image_url(self):
         "Return an absolute URL to the first image for this product."
-        
+        # return first absolute URL in the list returned from the method below.
+        return self.images_url()[0]
 
     def images_url(self):
         "Return a list of absolute URLs to the images for this product."
+        urlsList = []
+        # Query to find those images where the productimage is the same as the self object
+        # This does the same as the for loop, but instead of saving it to an object, it just loops
+        # imagesList = ProductImage.objects.filter(product=self)
+        for pi in ProductImage.objects.filter(product=self):
+            urlsList.append(pi.image_url())
+        # Check length of URLS list and add noimage if 0
+        if len(urlsList) == 0:
+            urlsList.append(settings.STATIC_URL + 'catalog/media/products/notfound.jpg')
+        return urlsList
+        
 
 ##  ProductImage can have 1 and only 1 Product
 class ProductImage(models.Model):
     # deletion of product from db will set foreign key for product on image to null
     product = models.ForeignKey(Product, verbose_name="image's product", 
-    on_delete=models.SET_NULL, null=True)
+    on_delete=models.SET_NULL, related_name='images', null=True)
     # Example: "violin.jpg"
+    # see method below to see how this will be appended on the absolute URL
     filename = models.TextField("product image filename")
 
     #### REQUIRED PRODUCTIMAGE METHODS ####
     def image_url(self):
         "Return an absolute URL to this image."
+        return settings.STATIC_URL + 'catalog/media/products/' + self.filename
