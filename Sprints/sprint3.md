@@ -4,33 +4,33 @@ Sprint 3 is about the /catalog/ app, product models, recent views, and shopping 
 
 `version 1.0`
 |----------------------------|
-| # # Catalog App            |
+| #X# Catalog App            |
 |----------------------------|
-# # Create a "catalog" app and add to INSTALLED_APPS
-# # Download a number of product pictures to `/catalog/media/products/`
+#X# Create a "catalog" app and add to INSTALLED_APPS
+#X# Download a number of product pictures to `/catalog/media/products/`
 
 |----------------------------|
-| # # Category Model         |
+| #X# Category Model         |
 |----------------------------|
-# # Create in /catalog/models.py -> class Category(models.Model)
-# # Required fields:
-  # # last_modified - models.DatetimeField, auto_now=True
-  # # name - models.TextField
+#X# Create in /catalog/models.py -> class Category(models.Model)
+#X# Required fields:
+  #X# last_modified - models.DatetimeField, auto_now=True
+  #X# name - models.TextField
 
 |----------------------------|
 | # # Product Model          |
 |----------------------------|
-# # Create in /catalog/models.py -> class Product(models.Model)
-# # Required fields:
-  # # category (1-M foreign key to Category model) - models.ForeignKey
-  # # last_modified - models.DatetimeField, auto_now=True
-  # # status - models.TextField, db_index=True, choices=Active or Inactive, default=, don't use boolean field
-  # # name - models.TextField
-  # # description - models.TextField
-  # # price - models.DecimalField, max_digits=(you decide), decimal_places=2
-  # # quantity (current in stock) - models.IntegerField
-  # # reorder_trigger (when we reorder) - models.IntegerField
-  # # reorder_quantity (how many we order) - models.IntegerField
+#X# Create in /catalog/models.py -> class Product(models.Model)
+#X# Required fields:
+  #X# category (1-M foreign key to Category model) - models.ForeignKey
+  #X# last_modified - models.DatetimeField, auto_now=True
+  #X# status - models.TextField, db_index=True, choices=Active or Inactive, default=, don't use boolean field
+  #X# name - models.TextField
+  #X# description - models.TextField
+  #X# price - models.DecimalField, max_digits=(you decide), decimal_places=2
+  #X# quantity (current in stock) - models.IntegerField
+  #X# reorder_trigger (when we reorder) - models.IntegerField
+  #X# reorder_quantity (how many we order) - models.IntegerField
 # # Required methods:
   # # image_url(self) - return an absolute URL to the first image for this product, or if no ProductImage records, the "no image available" image. The return will be something like: `settings.STATIC_URL + "catalog/media/products/rustic-violin.jpg"`
   # # images_url(self) - return a list of absolute URLs to the images for this product, or if no ProductImage records, a list of one item: the "no image available" image.
@@ -38,10 +38,10 @@ Sprint 3 is about the /catalog/ app, product models, recent views, and shopping 
 |----------------------------|
 | # # ProductImage Model     |
 |----------------------------|
-# # Create in /catalog/models.py -> class ProductImage(models.Model)
-# # Required Fields:
-  # # filename - models.TextField(), example: "violin.jpg"
-  # # product (1-M foreign key to Product model) - models.ForeignKey
+#X# Create in /catalog/models.py -> class ProductImage(models.Model)
+#X# Required Fields:
+  #X# filename - models.TextField(), example: "violin.jpg"
+  #X# product (1-M foreign key to Product model) - models.ForeignKey
 # # Required Methods
   # # image_url(self) - return an absolute URL to this image. The return will be something like: `settings.STATIC_URL + "catalog/media/products/rustic-violin.jpg"`. If no images available, return something like: `settings.STATIC_URL + "catalog/media/products/notfound.jpg"`
 
