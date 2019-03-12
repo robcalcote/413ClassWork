@@ -1,0 +1,15 @@
+<%inherit file="/homepage/templates/base.htm" />
+<%! from catalog import models as cmod %>
+
+## Overridden Left Column
+<%block name="left_column">
+    <!-- Override the left column block
+            have names link to /catalog/index/<category id>/
+            all products should link to /catalog/index/
+            ALL pages in catalog app should extend from this app_base.htm -->
+    <ul>
+        % for cat in cmod.Category.objects.order_by('name'):
+            <li>${ cat.name }</li>
+        % endfor
+    </ul>
+</%block>

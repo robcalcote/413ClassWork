@@ -5,10 +5,10 @@ STOP_RENDERING = runtime.STOP_RENDERING
 __M_dict_builtin = dict
 __M_locals_builtin = locals
 _magic_number = 10
-_modified_time = 1552369399.1054723
+_modified_time = 1552369399.7567747
 _enable_loop = True
 _template_filename = 'C:/Users/Rob/Desktop/BYU/Winter2019/413/project2class/homepage/templates/base.htm'
-_template_uri = 'base.htm'
+_template_uri = '/homepage/templates/base.htm'
 _source_encoding = 'utf-8'
 import django_mako_plus
 import django.utils.html
@@ -204,6 +204,6 @@ def render_right_column(context,**pageargs):
 
 """
 __M_BEGIN_METADATA
-{"filename": "C:/Users/Rob/Desktop/BYU/Winter2019/413/project2class/homepage/templates/base.htm", "uri": "base.htm", "source_encoding": "utf-8", "line_map": {"18": 94, "20": 0, "42": 2, "43": 8, "48": 8, "49": 9, "50": 9, "51": 12, "52": 12, "53": 12, "54": 15, "55": 15, "56": 15, "57": 16, "58": 16, "59": 19, "60": 20, "61": 20, "62": 25, "63": 32, "64": 35, "65": 36, "66": 36, "67": 37, "68": 37, "73": 47, "78": 64, "79": 73, "84": 74, "85": 78, "86": 80, "91": 80, "96": 83, "101": 86, "102": 94, "103": 95, "104": 95, "110": 8, "121": 38, "129": 38, "130": 39, "131": 39, "132": 41, "133": 41, "134": 43, "135": 43, "136": 45, "137": 45, "143": 50, "150": 50, "151": 51, "152": 52, "153": 59, "154": 60, "155": 63, "161": 74, "172": 80, "183": 83, "194": 86, "205": 194}}
+{"filename": "C:/Users/Rob/Desktop/BYU/Winter2019/413/project2class/homepage/templates/base.htm", "uri": "/homepage/templates/base.htm", "source_encoding": "utf-8", "line_map": {"18": 94, "20": 0, "42": 2, "43": 8, "48": 8, "49": 9, "50": 9, "51": 12, "52": 12, "53": 12, "54": 15, "55": 15, "56": 15, "57": 16, "58": 16, "59": 19, "60": 20, "61": 20, "62": 25, "63": 32, "64": 35, "65": 36, "66": 36, "67": 37, "68": 37, "73": 47, "78": 64, "79": 73, "84": 74, "85": 78, "86": 80, "91": 80, "96": 83, "101": 86, "102": 94, "103": 95, "104": 95, "110": 8, "121": 38, "129": 38, "130": 39, "131": 39, "132": 41, "133": 41, "134": 43, "135": 43, "136": 45, "137": 45, "143": 50, "150": 50, "151": 51, "152": 52, "153": 59, "154": 60, "155": 63, "161": 74, "172": 80, "183": 83, "194": 86, "205": 194}}
 __M_END_METADATA
 """
