@@ -64,10 +64,10 @@ Management commands can be helpful here:
 | # # `/catalog/templates    |
 |     /app_base.htm`         |
 |----------------------------|
-# # Extends /homepage/templates/base.htm
+#X# Extends /homepage/templates/base.htm
 # # Override the left column block
-  # # Show all category names in a `<ul>` list
-  # # In /catalog/styles/app_base.scss, style the list so it has no bullets or margin. It will look the same on the screen as if it were a series of `<div>` elements.
+  #X# Show all category names in a `<ul>` list
+  #X# In /catalog/styles/app_base.scss, style the list so it has no bullets or margin. It will look the same on the screen as if it were a series of `<div>` elements.
   # # Each name links to `/catalog/index/<category id>/`
   # # For all products: `/catalog/index/`
 # # All pages in the catalog app extend from this template
