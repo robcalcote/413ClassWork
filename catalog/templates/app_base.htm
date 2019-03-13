@@ -9,10 +9,12 @@
             have names link to /catalog/index/<category id>/
             all products should link to /catalog/index/
             ALL pages in catalog app should extend from this app_base.htm -->
-    <ul>
+    <ul id="category-list">
+        <li class="${ 'active' if category is None else '' }">
+            <a href="/catalog/index/">All Products</a></li>
         % for cat in cmod.Category.objects.order_by('name'):
-            <li class="nav-item ${ 'active' if request.dmp.page == '${ cat.name }' else '' }">
-                <a class="nav-link" href="/catalog/index/${ cat.id }">${ cat.name }</a></li>
+        <li class="${ 'active' if category == '${ cat.name }' else '' }">
+            <a href="/catalog/index/${ cat.id }">${ cat.name }</a></li>
         % endfor
     </ul>
 </%block>

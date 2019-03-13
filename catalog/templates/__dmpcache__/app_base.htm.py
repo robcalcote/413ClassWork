@@ -5,7 +5,7 @@ STOP_RENDERING = runtime.STOP_RENDERING
 __M_dict_builtin = dict
 __M_locals_builtin = locals
 _magic_number = 10
-_modified_time = 1552488116.3469067
+_modified_time = 1552490982.0511951
 _enable_loop = True
 _template_filename = 'C:/Users/Rob/Desktop/BYU/Winter2019/413/project2class/catalog/templates/app_base.htm'
 _template_uri = 'app_base.htm'
@@ -32,12 +32,12 @@ def render_body(context,**pageargs):
     __M_caller = context.caller_stack._push_frame()
     try:
         __M_locals = __M_dict_builtin(pageargs=pageargs)
-        self = context.get('self', UNDEFINED)
-        request = context.get('request', UNDEFINED)
-        def site_title():
-            return render_site_title(context._locals(__M_locals))
+        category = context.get('category', UNDEFINED)
         def left_column():
             return render_left_column(context._locals(__M_locals))
+        self = context.get('self', UNDEFINED)
+        def site_title():
+            return render_site_title(context._locals(__M_locals))
         __M_writer = context.writer()
         __M_writer('\r\n')
         __M_writer('\r\n\r\n')
@@ -71,16 +71,18 @@ def render_site_title(context,**pageargs):
 def render_left_column(context,**pageargs):
     __M_caller = context.caller_stack._push_frame()
     try:
-        self = context.get('self', UNDEFINED)
+        category = context.get('category', UNDEFINED)
         def left_column():
             return render_left_column(context)
-        request = context.get('request', UNDEFINED)
+        self = context.get('self', UNDEFINED)
         __M_writer = context.writer()
-        __M_writer('\r\n    <!-- Override the left column block\r\n            have names link to /catalog/index/<category id>/\r\n            all products should link to /catalog/index/\r\n            ALL pages in catalog app should extend from this app_base.htm -->\r\n    <ul>\r\n')
+        __M_writer('\r\n    <!-- Override the left column block\r\n            have names link to /catalog/index/<category id>/\r\n            all products should link to /catalog/index/\r\n            ALL pages in catalog app should extend from this app_base.htm -->\r\n    <ul id="category-list">\r\n        <li class="')
+        __M_writer(django_mako_plus.ExpressionPostProcessor(self)( 'active' if category is None else '' ))
+        __M_writer('">\r\n            <a href="/catalog/index/">All Products</a></li>\r\n')
         for cat in cmod.Category.objects.order_by('name'):
-            __M_writer('            <li class="nav-item ')
-            __M_writer(django_mako_plus.ExpressionPostProcessor(self)( 'active' if request.dmp.page == '${ cat.name }' else '' ))
-            __M_writer('">\r\n                <a class="nav-link" href="/catalog/index/')
+            __M_writer('        <li class="')
+            __M_writer(django_mako_plus.ExpressionPostProcessor(self)( 'active' if category == '${ cat.name }' else '' ))
+            __M_writer('">\r\n            <a href="/catalog/index/')
             __M_writer(django_mako_plus.ExpressionPostProcessor(self)( cat.id ))
             __M_writer('">')
             __M_writer(django_mako_plus.ExpressionPostProcessor(self)( cat.name ))
@@ -93,6 +95,6 @@ def render_left_column(context,**pageargs):
 
 """
 __M_BEGIN_METADATA
-{"filename": "C:/Users/Rob/Desktop/BYU/Winter2019/413/project2class/catalog/templates/app_base.htm", "uri": "app_base.htm", "source_encoding": "utf-8", "line_map": {"18": 2, "31": 0, "42": 1, "43": 2, "48": 4, "53": 18, "59": 4, "65": 4, "71": 7, "79": 7, "80": 13, "81": 14, "82": 14, "83": 14, "84": 15, "85": 15, "86": 15, "87": 15, "88": 17, "94": 88}}
+{"filename": "C:/Users/Rob/Desktop/BYU/Winter2019/413/project2class/catalog/templates/app_base.htm", "uri": "app_base.htm", "source_encoding": "utf-8", "line_map": {"18": 2, "31": 0, "42": 1, "43": 2, "48": 4, "53": 20, "59": 4, "65": 4, "71": 7, "79": 7, "80": 13, "81": 13, "82": 15, "83": 16, "84": 16, "85": 16, "86": 17, "87": 17, "88": 17, "89": 17, "90": 19, "96": 90}}
 __M_END_METADATA
 """

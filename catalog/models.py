@@ -1,5 +1,6 @@
 from django.db import models
 import datetime
+from django.conf import settings
 
 # Create your models here.
 

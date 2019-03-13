@@ -1,0 +1,12 @@
+<%inherit file="/homepage/templates/base_ajax.htm" />
+
+<%block name="center_content">
+    <div class="product-container">
+        <div class="product-tile">
+            <div class="product-image"><img src="${ product.image_url() }" /></div>
+            <div class="product-name">${ product.name }</div>
+            <div class="product-price">${ product.price }</div>
+            <div class="product-description">${ product.description }</div>
+        </div>
+    </div>
+</%block>

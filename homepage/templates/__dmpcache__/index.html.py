@@ -5,7 +5,7 @@ STOP_RENDERING = runtime.STOP_RENDERING
 __M_dict_builtin = dict
 __M_locals_builtin = locals
 _magic_number = 10
-_modified_time = 1552487933.7134144
+_modified_time = 1552504546.7003787
 _enable_loop = True
 _template_filename = 'C:/Users/Rob/Desktop/BYU/Winter2019/413/project2class/homepage/templates/index.html'
 _template_uri = 'index.html'
@@ -30,14 +30,14 @@ def render_body(context,**pageargs):
     __M_caller = context.caller_stack._push_frame()
     try:
         __M_locals = __M_dict_builtin(pageargs=pageargs)
-        def right_column():
-            return render_right_column(context._locals(__M_locals))
-        def title():
-            return render_title(context._locals(__M_locals))
         def center_content():
             return render_center_content(context._locals(__M_locals))
         def site_title():
             return render_site_title(context._locals(__M_locals))
+        def title():
+            return render_title(context._locals(__M_locals))
+        def right_column():
+            return render_right_column(context._locals(__M_locals))
         __M_writer = context.writer()
         __M_writer('\r\n\r\n')
         if 'parent' not in context._data or not hasattr(context._data['parent'], 'title'):

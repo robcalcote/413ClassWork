@@ -61,16 +61,16 @@ Management commands can be helpful here:
 #X# Import fixtures file into database: "python3 manage.py loaddata catalog/fixtures/catalog.yaml"
  
 |----------------------------|
-| # # `/catalog/templates    |
+| #X# `/catalog/templates    |
 |     /app_base.htm`         |
 |----------------------------|
 #X# Extends /homepage/templates/base.htm
-# # Override the left column block
+#X# Override the left column block
   #X# Show all category names in a `<ul>` list
   #X# In /catalog/styles/app_base.scss, style the list so it has no bullets or margin. It will look the same on the screen as if it were a series of `<div>` elements.
-  # # Each name links to `/catalog/index/<category id>/`
-  # # For all products: `/catalog/index/`
-# # All pages in the catalog app extend from this template
+  #X# Each name links to `/catalog/index/<category id>/`
+  #X# For all products: `/catalog/index/`
+#X# All pages in the catalog app extend from this template
 
 |----------------------------|
 | # # List of Products (Category) Page: `/catalog/index/<category id>/<page number>/`   
@@ -116,11 +116,11 @@ Management commands can be helpful here:
 | # # Product Tile Snippet:  |
 | `/catalog/product.tile/<product id>/`
 |----------------------------|
-# # DMP docs: https://django-mako-plus.readthedocs.io/tutorial_ajax.html
-# # View file is in `/catalog/views/product.py`
-  # # View function is: `def tile(request, product:cmod.Product)`
-# # Template file is `/catalog/templates/product.tile.html`
-  # # Extends `/homepage/templates/base_ajax.htm"
+#X# DMP docs: https://django-mako-plus.readthedocs.io/tutorial_ajax.html
+#X# View file is in `/catalog/views/product.py`
+  #X# View function is: `def tile(request, product:cmod.Product)`
+#X# Template file is `/catalog/templates/product.tile.html`
+  #X# Extends `/homepage/templates/base_ajax.htm"
 # # Style the classes with CSS in `/catalog/styles/product.tile.scss`
   # # `product-tile`
     # # display set to `inline-block`

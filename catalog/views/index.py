@@ -1,23 +1,25 @@
-from django.contrib.auth import authenticate, login
-from django.core.exceptions import ValidationError
-from django.http import HttpResponseRedirect
-
-from django.conf import settings
 from django_mako_plus import view_function, jscontext
-from catalog.models import Category, Product, ProductImage
-
-from datetime import datetime, timezone
+from catalog import models as cmod
+import math
 
 # Define the number of Items per Page
-ITEMS_PER_PAGE = 3
+ITEMS_PER_PAGE = 8
 
 @view_function
-def process_request(request):
+def process_request(request, category:cmod.Category=None, page:int=1): #
+    print('>>>>>>')
+    print('cmod.Product.objects.all()')
+    products = cmod.Product.objects.filter(status="A")
+    if category is not None:
+        products = products.filter(category=category)
+
+    products = products[(page - 1) * ITEMS_PER_PAGE: page * ITEMS_PER_PAGE]
 
     context = {
-        'Category': Category,
-        'Product': Product,
-        'ProductImage': ProductImage
+        'category': category,
+        'products': products,
+        'page': page,
+        'numpages': math.ceil(products.count() / ITEMS_PER_PAGE),
     }
 
     return request.dmp.render('index.html', context)

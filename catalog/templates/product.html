@@ -1,8 +1,5 @@
 <%inherit file="app_base.htm" />
 
-## Title
-<%block name="title">Catalog</%block>
-
 ## Content
 <%block name="center_content">
     <p id="catalog-category">${ 'All Categories' if category is None else category.name }</p>
