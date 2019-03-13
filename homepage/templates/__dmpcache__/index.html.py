@@ -5,7 +5,7 @@ STOP_RENDERING = runtime.STOP_RENDERING
 __M_dict_builtin = dict
 __M_locals_builtin = locals
 _magic_number = 10
-_modified_time = 1549510997.6803858
+_modified_time = 1552487933.7134144
 _enable_loop = True
 _template_filename = 'C:/Users/Rob/Desktop/BYU/Winter2019/413/project2class/homepage/templates/index.html'
 _template_uri = 'index.html'
@@ -30,16 +30,14 @@ def render_body(context,**pageargs):
     __M_caller = context.caller_stack._push_frame()
     try:
         __M_locals = __M_dict_builtin(pageargs=pageargs)
-        def center_content():
-            return render_center_content(context._locals(__M_locals))
         def right_column():
             return render_right_column(context._locals(__M_locals))
-        def site_title():
-            return render_site_title(context._locals(__M_locals))
         def title():
             return render_title(context._locals(__M_locals))
-        request = context.get('request', UNDEFINED)
-        self = context.get('self', UNDEFINED)
+        def center_content():
+            return render_center_content(context._locals(__M_locals))
+        def site_title():
+            return render_site_title(context._locals(__M_locals))
         __M_writer = context.writer()
         __M_writer('\r\n\r\n')
         if 'parent' not in context._data or not hasattr(context._data['parent'], 'title'):
@@ -82,14 +80,10 @@ def render_title(context,**pageargs):
 def render_site_title(context,**pageargs):
     __M_caller = context.caller_stack._push_frame()
     try:
-        request = context.get('request', UNDEFINED)
         def site_title():
             return render_site_title(context)
-        self = context.get('self', UNDEFINED)
         __M_writer = context.writer()
-        __M_writer('\r\n    ')
-        __M_writer(django_mako_plus.ExpressionPostProcessor(self)( request.dmp.page ))
-        __M_writer('\r\n')
+        __M_writer('\r\n    Sprint 1\r\n')
         return ''
     finally:
         context.caller_stack._pop_frame()
@@ -101,7 +95,6 @@ def render_center_content(context,**pageargs):
         def center_content():
             return render_center_content(context)
         __M_writer = context.writer()
-        __M_writer('\r\n    <div class="content">\r\n        <p>Welcome to Sprint 1... I hope you have a good time!</p>\r\n    </div>\r\n')
         return ''
     finally:
         context.caller_stack._pop_frame()
@@ -120,6 +113,6 @@ def render_right_column(context,**pageargs):
 
 """
 __M_BEGIN_METADATA
-{"filename": "C:/Users/Rob/Desktop/BYU/Winter2019/413/project2class/homepage/templates/index.html", "uri": "index.html", "source_encoding": "utf-8", "line_map": {"29": 0, "44": 1, "49": 4, "54": 9, "59": 16, "64": 18, "70": 4, "76": 4, "82": 7, "90": 7, "91": 8, "92": 8, "98": 12, "104": 12, "110": 18, "121": 110}}
+{"filename": "C:/Users/Rob/Desktop/BYU/Winter2019/413/project2class/homepage/templates/index.html", "uri": "index.html", "source_encoding": "utf-8", "line_map": {"29": 0, "42": 1, "47": 4, "52": 9, "57": 12, "62": 14, "68": 4, "74": 4, "80": 7, "86": 7, "92": 12, "103": 14, "114": 103}}
 __M_END_METADATA
 """

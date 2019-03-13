@@ -1,6 +1,8 @@
 <%inherit file="/homepage/templates/base.htm" />
 <%! from catalog import models as cmod %>
 
+<%block name="site_title">Sprint 3</%block>
+
 ## Overridden Left Column
 <%block name="left_column">
     <!-- Override the left column block
@@ -9,7 +11,8 @@
             ALL pages in catalog app should extend from this app_base.htm -->
     <ul>
         % for cat in cmod.Category.objects.order_by('name'):
-            <li>${ cat.name }</li>
+            <li class="nav-item ${ 'active' if request.dmp.page == '${ cat.name }' else '' }">
+                <a class="nav-link" href="/catalog/index/${ cat.id }">${ cat.name }</a></li>
         % endfor
     </ul>
 </%block>

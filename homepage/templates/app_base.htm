@@ -1,5 +1,7 @@
 <%inherit file="base.htm" />
 
+<%block name="page_title">Sprint 1</%block>
+
 ## Overridden Left Navbar
 <%block name="left_column">
     <p class="nav-item ${ 'active' if request.dmp.page == 'index' else '' }">
@@ -9,3 +11,5 @@
     <p class="nav-item ${ 'active' if request.dmp.page == 'contact' else '' }">
         <a class="nav-link" href="/homepage/contact/">Contact</a></p>
 </%block>
+
+

@@ -39,7 +39,7 @@
                                 <li class="nav-item ${ 'active' if request.dmp.page == 'index' else '' }">
                                     <a class="nav-link" href="/">Home</a></li>
                                 <li class="nav-item ${ 'active' if request.dmp.page == 'catalog' else '' }">
-                                    <a class="nav-link" href="catalog/index">Catalog</a></li>
+                                    <a class="nav-link" href="/catalog/index">Catalog</a></li>
                                 <li class="nav-item ${ 'active' if request.dmp.page == 'about' else '' }">
                                     <a class="nav-link" href="/homepage/about/">About</a></li>
                                 <li class="nav-item ${ 'active' if request.dmp.page == 'contact' else '' }">
@@ -71,7 +71,7 @@
         <main>
             ## This is a Title for the page displayed above the center main block
             <div id="site_title">
-                <%block name="site_title"></%block>
+                <h1><%block name="site_title"></%block></h1>
             </div>
 
             ## Think of these blocks as viewbags = place the things they contain in the files that inherit from base.

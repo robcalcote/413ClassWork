@@ -5,7 +5,7 @@ STOP_RENDERING = runtime.STOP_RENDERING
 __M_dict_builtin = dict
 __M_locals_builtin = locals
 _magic_number = 10
-_modified_time = 1552369399.7567747
+_modified_time = 1552487987.758219
 _enable_loop = True
 _template_filename = 'C:/Users/Rob/Desktop/BYU/Winter2019/413/project2class/homepage/templates/base.htm'
 _template_uri = '/homepage/templates/base.htm'
@@ -21,23 +21,23 @@ def render_body(context,**pageargs):
     __M_caller = context.caller_stack._push_frame()
     try:
         __M_locals = __M_dict_builtin(pageargs=pageargs)
-        STATIC_URL = context.get('STATIC_URL', UNDEFINED)
-        def right_column():
-            return render_right_column(context._locals(__M_locals))
-        self = context.get('self', UNDEFINED)
-        def left_column():
-            return render_left_column(context._locals(__M_locals))
-        def site_title():
-            return render_site_title(context._locals(__M_locals))
-        def navbar_main():
-            return render_navbar_main(context._locals(__M_locals))
-        def navbar_login():
-            return render_navbar_login(context._locals(__M_locals))
-        def center_content():
-            return render_center_content(context._locals(__M_locals))
+        request = context.get('request', UNDEFINED)
         def title():
             return render_title(context._locals(__M_locals))
-        request = context.get('request', UNDEFINED)
+        def site_title():
+            return render_site_title(context._locals(__M_locals))
+        def left_column():
+            return render_left_column(context._locals(__M_locals))
+        def navbar_login():
+            return render_navbar_login(context._locals(__M_locals))
+        def navbar_main():
+            return render_navbar_main(context._locals(__M_locals))
+        self = context.get('self', UNDEFINED)
+        def right_column():
+            return render_right_column(context._locals(__M_locals))
+        def center_content():
+            return render_center_content(context._locals(__M_locals))
+        STATIC_URL = context.get('STATIC_URL', UNDEFINED)
         __M_writer = context.writer()
         __M_writer('<!DOCTYPE html>\r\n<html>\r\n    <meta charset="UTF-8">\r\n    <head>\r\n\r\n')
         __M_writer('        <title>Sprint 1 - ')
@@ -76,12 +76,12 @@ def render_body(context,**pageargs):
         
 
         __M_writer('\r\n                        </div> \r\n                    </div>\r\n                </nav>\r\n            </div>\r\n        </header>\r\n\r\n        <main>\r\n')
-        __M_writer('            <div id="site_title">\r\n                ')
+        __M_writer('            <div id="site_title">\r\n                <h1>')
         if 'parent' not in context._data or not hasattr(context._data['parent'], 'site_title'):
             context['self'].site_title(**pageargs)
         
 
-        __M_writer('\r\n            </div>\r\n\r\n')
+        __M_writer('</h1>\r\n            </div>\r\n\r\n')
         __M_writer('            <div id="left_column">\r\n')
         __M_writer('                ')
         if 'parent' not in context._data or not hasattr(context._data['parent'], 'left_column'):
@@ -130,7 +130,7 @@ def render_navbar_main(context,**pageargs):
         __M_writer(django_mako_plus.ExpressionPostProcessor(self)( 'active' if request.dmp.page == 'index' else '' ))
         __M_writer('">\r\n                                    <a class="nav-link" href="/">Home</a></li>\r\n                                <li class="nav-item ')
         __M_writer(django_mako_plus.ExpressionPostProcessor(self)( 'active' if request.dmp.page == 'catalog' else '' ))
-        __M_writer('">\r\n                                    <a class="nav-link" href="catalog/index">Catalog</a></li>\r\n                                <li class="nav-item ')
+        __M_writer('">\r\n                                    <a class="nav-link" href="/catalog/index">Catalog</a></li>\r\n                                <li class="nav-item ')
         __M_writer(django_mako_plus.ExpressionPostProcessor(self)( 'active' if request.dmp.page == 'about' else '' ))
         __M_writer('">\r\n                                    <a class="nav-link" href="/homepage/about/">About</a></li>\r\n                                <li class="nav-item ')
         __M_writer(django_mako_plus.ExpressionPostProcessor(self)( 'active' if request.dmp.page == 'contact' else '' ))

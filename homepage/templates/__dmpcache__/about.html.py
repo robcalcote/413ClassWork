@@ -5,7 +5,7 @@ STOP_RENDERING = runtime.STOP_RENDERING
 __M_dict_builtin = dict
 __M_locals_builtin = locals
 _magic_number = 10
-_modified_time = 1549508464.936695
+_modified_time = 1552487988.4714956
 _enable_loop = True
 _template_filename = 'C:/Users/Rob/Desktop/BYU/Winter2019/413/project2class/homepage/templates/about.html'
 _template_uri = 'about.html'
@@ -30,14 +30,14 @@ def render_body(context,**pageargs):
     __M_caller = context.caller_stack._push_frame()
     try:
         __M_locals = __M_dict_builtin(pageargs=pageargs)
-        def site_title():
-            return render_site_title(context._locals(__M_locals))
         request = context.get('request', UNDEFINED)
-        def center_content():
-            return render_center_content(context._locals(__M_locals))
-        self = context.get('self', UNDEFINED)
         def title():
             return render_title(context._locals(__M_locals))
+        def site_title():
+            return render_site_title(context._locals(__M_locals))
+        self = context.get('self', UNDEFINED)
+        def center_content():
+            return render_center_content(context._locals(__M_locals))
         __M_writer = context.writer()
         __M_writer('\r\n\r\n')
         if 'parent' not in context._data or not hasattr(context._data['parent'], 'title'):
@@ -75,10 +75,10 @@ def render_title(context,**pageargs):
 def render_site_title(context,**pageargs):
     __M_caller = context.caller_stack._push_frame()
     try:
+        self = context.get('self', UNDEFINED)
+        request = context.get('request', UNDEFINED)
         def site_title():
             return render_site_title(context)
-        request = context.get('request', UNDEFINED)
-        self = context.get('self', UNDEFINED)
         __M_writer = context.writer()
         __M_writer('\r\n    ')
         __M_writer(django_mako_plus.ExpressionPostProcessor(self)( request.dmp.page ))
