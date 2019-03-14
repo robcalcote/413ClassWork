@@ -2,10 +2,26 @@
 
 ## Content
 <%block name="center_content">
-    <p id="catalog-category">${ 'All Categories' if category is None else category.name }</p>
-    <div id="catalog-products">
-        %for prod in products:
-            <span class="product-container" data-product-id="${ prod.id }"></span>
-        %endfor
+    <div class="product-display">
+        <div class="product-image-main"><img src="${ product.image_url() }" />
+            <div class="product-display-below">
+                %for images in allImages:
+                    <img class="product-image-alt" src="${ images.image_url() }" />
+                %endfor
+            </div>
+        </div>
+        <div class="product-info-main">
+            <table>
+                <tr><th></th><th></th></tr>
+                <tr><td>Name:</td><td>${ product.name }</td></tr>
+                <tr><td>Price:</td><td>${ product.price }</td></tr>
+                <tr><td>Description:</td><td>${ product.description }</td></tr>
+                <tr><td>Quantity Available:</td><td>${ product.quantity }</td></tr>
+            </table>
+        </div>
+        <br />
+        <br />
+
     </div>
+
 </%block>

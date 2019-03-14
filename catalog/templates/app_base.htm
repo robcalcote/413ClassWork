@@ -5,10 +5,6 @@
 
 ## Overridden Left Column
 <%block name="left_column">
-    <!-- Override the left column block
-            have names link to /catalog/index/<category id>/
-            all products should link to /catalog/index/
-            ALL pages in catalog app should extend from this app_base.htm -->
     <ul id="category-list">
         <li class="${ 'active' if category is None else '' }">
             <a href="/catalog/index/">All Products</a></li>

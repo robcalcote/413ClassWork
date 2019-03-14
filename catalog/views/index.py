@@ -7,11 +7,13 @@ ITEMS_PER_PAGE = 8
 
 @view_function
 def process_request(request, category:cmod.Category=None, page:int=1): #
-    print('>>>>>>')
-    print('cmod.Product.objects.all()')
+
     products = cmod.Product.objects.filter(status="A")
     if category is not None:
         products = products.filter(category=category)
+        numpages = math.ceil(products.filter(category=category).count() /ITEMS_PER_PAGE)
+    else:
+        numpages = math.ceil(cmod.Product.objects.filter(status="A").count() / ITEMS_PER_PAGE)
 
     products = products[(page - 1) * ITEMS_PER_PAGE: page * ITEMS_PER_PAGE]
 
@@ -19,7 +21,9 @@ def process_request(request, category:cmod.Category=None, page:int=1): #
         'category': category,
         'products': products,
         'page': page,
-        'numpages': math.ceil(products.count() / ITEMS_PER_PAGE),
+        'numpages': numpages,
     }
+
+    print(numpages)
 
     return request.dmp.render('index.html', context)

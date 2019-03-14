@@ -16,8 +16,6 @@ html, body {
     }
 }
 
-
-
 .clearfix {
     clear: both;
 }
@@ -38,7 +36,6 @@ header {
     img.site_icon {
         width: 40px;
         height: 40px;
-
     }
 
     img {
@@ -71,9 +68,6 @@ header {
     }
 }
 
-
-
-
 main {
     position: relative;
     margin: 0px;
@@ -94,7 +88,7 @@ main {
         left: 0;
         top: 0;
         width: $side-col-width;
-        height: 600px;
+        height: 700px;
     }
     #center_content {
         background-color: #878f99;
@@ -102,7 +96,7 @@ main {
         top: 0px;
         margin-left: $side-col-width;
         margin-right: $side-col-width;
-        height: 550px;
+        height: 650px;
     }
     #right_column {
         background-color: #a2b9bc;
@@ -110,7 +104,7 @@ main {
         right: 0px;
         top: 0px;
         width: $side-col-width;
-        height: 600px;
+        height: 700px;
     }
 }
 

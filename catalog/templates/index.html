@@ -11,4 +11,26 @@
             <span class="product-container" data-product-id="${ prod.id }"></span>
         %endfor
     </div>
+    <br/>
+    <br/>
+    <div id="pagination_buttons">
+        %if (page == numpages) & (page < 2):
+        <p>All products shown.</p>
+        %elif page < 2:
+        <button type="button" class="pagination_button">
+            <a href="/catalog/index/${ '-' if category is None else category.id }/${ page + 1 }">Next Page</a>
+        </button>
+        %elif page == numpages:
+        <button type="button" class="pagination_button">
+            <a href="/catalog/index/${ '-' if category is None else category.id }/${ page - 1 }">Previous Page</a>
+        </button>
+        %else:
+        <button type="button" class="pagination_button">
+            <a href="/catalog/index/${ '-' if category is None else category.id }/${ page - 1 }">Previous Page</a>
+        </button>
+        <button type="button" class="pagination_button">
+            <a href="/catalog/index/${ '-' if category is None else category.id }/${ page + 1 }">Next Page</a>
+        </button>
+        %endif
+    </div>
 </%block>

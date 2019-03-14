@@ -75,45 +75,45 @@ Management commands can be helpful here:
 |----------------------------|
 | # # List of Products (Category) Page: `/catalog/index/<category id>/<page number>/`   
 |----------------------------|
-# # Shows product tiles for the given category
-  # # Only products with "active" status are shown
-  # # Show up to 8 products per page
-# # View function is: `def process_request(request, category:cmod.Category=None, page:int=1)`
-  # # DMP docs: https://django-mako-plus.readthedocs.io/converters_types.html
-  # # If `category` is None, show all products
-  # # If `category` is given, show that category's products
-# # Product tiles should be loaded with ajax calls to `/catalog/product.tile/<product id>/`
-  # # Create a `<div class="product-container" data-product-id="${ product.id }"></div>` container to load into
-  # # Use jQuery's `$.ajax` or `$.load` commands in `/catalog/scripts/catalog.js`
-  # # DMP docs: https://django-mako-plus.readthedocs.io/static_overview.html, especially Step 2, ES5 JS, run when page is ready (jQuery).
-# # Paginate up to 8 items per page
-  # # Pagination is on SERVER SIDE with a query, not on client side with JS
-  # # Previous Page and Next Page links at bottom of product tiles
-  # # Example of all products, page 3: `<a class="btn btn-default" href="/catalog/index/0/3/">Next Page</a>`
-  # # Example of instruments category (id=7), page 2: `<a class="btn btn-default" href="/catalog/index/7/2/">Next Page</a>`
-# # Hints:
-  # # If `products` is a query, then `math.ceil(products.count() / ITEMS_PER_PAGE)` gives the number of pages.
-  # # If `products` is a query of all products, then `products = products.filter(...)` filters the query further (i.e. to a category).
-  # # If `products` is a query of all products, then `products = products[8:16]` filters the query to records 8-15 inclusive.
-  # # `<%! from catalog import models as cmod %>` makes `cmod` available in `app_base.htm`.
+#X# Shows product tiles for the given category
+  #X# Only products with "active" status are shown
+  #X# Show up to 8 products per page
+#X# View function is: `def process_request(request, category:cmod.Category=None, page:int=1)`
+  #X# DMP docs: https://django-mako-plus.readthedocs.io/converters_types.html
+  #X# If `category` is None, show all products
+  #X# If `category` is given, show that category's products
+#X# Product tiles should be loaded with ajax calls to `/catalog/product.tile/<product id>/`
+  #X# Create a `<div class="product-container" data-product-id="${ product.id }"></div>` container to load into
+  #X# Use jQuery's `$.ajax` or `$.load` commands in `/catalog/scripts/catalog.js`
+  #X# DMP docs: https://django-mako-plus.readthedocs.io/static_overview.html, especially Step 2, ES5 JS, run when page is ready (jQuery).
+#X# Paginate up to 8 items per page
+  #X# Pagination is on SERVER SIDE with a query, not on client side with JS
+  #X# Previous Page and Next Page links at bottom of product tiles
+  #X# Example of all products, page 3: `<a class="btn btn-default" href="/catalog/index/0/3/">Next Page</a>`
+  #X# Example of instruments category (id=7), page 2: `<a class="btn btn-default" href="/catalog/index/7/2/">Next Page</a>`
+#X# Hints:
+  #X# If `products` is a query, then `math.ceil(products.count() / ITEMS_PER_PAGE)` gives the number of pages.
+  #X# If `products` is a query of all products, then `products = products.filter(...)` filters the query further (i.e. to a category).
+  #X# If `products` is a query of all products, then `products = products[8:16]` filters the query to records 8-15 inclusive.
+  #X# `<%! from catalog import models as cmod %>` makes `cmod` available in `app_base.htm`.
 
 |----------------------------|
-| # # Product Detail Page:   | 
+| #X# Product Detail Page:   | 
 | `/catalog/product/<product id>/`
 |----------------------------|
-# # View file is in `/catalog/views/product.py`
-  # # View function is: `def process_request(request, product:cmod.Product)`
-# # Template file is `/catalog/templates/product.html`
-  # # Extends `/catalog/templates/base.htm"
-# # Displays similar to an Amazon.com page
-  # # All images for the product
-  # # All fields: name, description, price, etc.
-# # Functionality NOT in in this sprint:
-  # # No purchase button yet
-  # # No quantity available display yet
+#X# View file is in `/catalog/views/product.py`
+  #X# View function is: `def process_request(request, product:cmod.Product)`
+#X# Template file is `/catalog/templates/product.html`
+  #X# Extends `/catalog/templates/app_base.htm"
+#X# Displays similar to an Amazon.com page
+  #X# All images for the product
+  #X# All fields: name, description, price, etc.
+#X# Functionality NOT in in this sprint:
+  #X# No purchase button yet
+  #X# No quantity available display yet
 
 |----------------------------|
-| # # Product Tile Snippet:  |
+| #X# Product Tile Snippet:  |
 | `/catalog/product.tile/<product id>/`
 |----------------------------|
 #X# DMP docs: https://django-mako-plus.readthedocs.io/tutorial_ajax.html
@@ -121,19 +121,19 @@ Management commands can be helpful here:
   #X# View function is: `def tile(request, product:cmod.Product)`
 #X# Template file is `/catalog/templates/product.tile.html`
   #X# Extends `/homepage/templates/base_ajax.htm"
-# # Style the classes with CSS in `/catalog/styles/product.tile.scss`
-  # # `product-tile`
-    # # display set to `inline-block`
-    # # max-width set to something like 300px
-    # # border set to something
-    # # border-radius set to 5px or similar
-  # # `product-image`
-    # # sets a max-width on the image
-    # # centers the image horizontally
-  # # `product-name` and `product-price`
-    # # centers the text horizontally
-    # # displays under the image
-
+#X# Style the classes with CSS in `/catalog/styles/product.tile.scss`
+  #X# `product-tile`
+    #X# display set to `inline-block`
+    #X# max-width set to something like 300px
+    #X# border set to something
+    #X# border-radius set to 5px or similar
+  #X# `product-image`
+    #X# sets a max-width on the image
+    #X# centers the image horizontally
+  #X# `product-name` and `product-price`
+    #X# centers the text horizontally
+    #X# displays under the image
+All done below
 Example HTML for the tile:
 ```html
 <a href="/catalog/product/1234/">
