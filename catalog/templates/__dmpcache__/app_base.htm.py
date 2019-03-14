@@ -5,7 +5,7 @@ STOP_RENDERING = runtime.STOP_RENDERING
 __M_dict_builtin = dict
 __M_locals_builtin = locals
 _magic_number = 10
-_modified_time = 1552527984.1804621
+_modified_time = 1552590441.7424748
 _enable_loop = True
 _template_filename = 'C:/Users/Rob/Desktop/BYU/Winter2019/413/project2class/catalog/templates/app_base.htm'
 _template_uri = 'app_base.htm'
@@ -32,12 +32,12 @@ def render_body(context,**pageargs):
     __M_caller = context.caller_stack._push_frame()
     try:
         __M_locals = __M_dict_builtin(pageargs=pageargs)
-        category = context.get('category', UNDEFINED)
         def site_title():
             return render_site_title(context._locals(__M_locals))
+        self = context.get('self', UNDEFINED)
+        category = context.get('category', UNDEFINED)
         def left_column():
             return render_left_column(context._locals(__M_locals))
-        self = context.get('self', UNDEFINED)
         __M_writer = context.writer()
         __M_writer('\r\n')
         __M_writer('\r\n\r\n')
@@ -71,10 +71,10 @@ def render_site_title(context,**pageargs):
 def render_left_column(context,**pageargs):
     __M_caller = context.caller_stack._push_frame()
     try:
+        self = context.get('self', UNDEFINED)
         category = context.get('category', UNDEFINED)
         def left_column():
             return render_left_column(context)
-        self = context.get('self', UNDEFINED)
         __M_writer = context.writer()
         __M_writer('\r\n    <ul id="category-list">\r\n        <li class="')
         __M_writer(django_mako_plus.ExpressionPostProcessor(self)( 'active' if category is None else '' ))

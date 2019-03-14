@@ -61,9 +61,9 @@ class Product(models.Model):
     def image_url(self):
         "Return an absolute URL to the first image for this product."
         # return first absolute URL in the list returned from the method below.
-        return self.images_url()[0]
+        return self.image_urls()[0]
 
-    def images_url(self):
+    def image_urls(self):
         "Return a list of absolute URLs to the images for this product."
         urlsList = []
         # Query to find those images where the productimage is the same as the self object
