@@ -3,7 +3,7 @@ from catalog import models as cmod
 import math
 
 # Define the number of Items per Page
-ITEMS_PER_PAGE = 8
+ITEMS_PER_PAGE = 3
 
 @view_function
 def process_request(request, category:cmod.Category=None, page:int=1): #
