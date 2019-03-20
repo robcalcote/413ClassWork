@@ -4,14 +4,13 @@ Sprint 4 is the purchase process.
 
 `version 1.0`
 
-## Sale and SaleItem Models
+#X# Sale and SaleItem Models
+#X# Create the Sale and SaleItem classes in `/catalog/models.py`:
 
-* Create the Sale and SaleItem classes in `/catalog/models.py`:
+    #X# from decimal import Decimal
+    #X# TAX_RATE = Decimal("0.05")
 
-    from decimal import Decimal
-    TAX_RATE = Decimal("0.05")
-
-    class Sale(models.Model):
+    #X# class Sale(models.Model):
         user = models.ForeignKey("account.User", on_delete=models.PROTECT)
         created = models.DateTimeField(auto_now_add=True)
         purchased = models.DateTimeField(null=True, default=None)
@@ -35,8 +34,7 @@ Sprint 4 is the purchase process.
             # Set purchased=now and charge_id=the id from Stripe
             # Save
 
-
-    class SaleItem(models.Model):
+    #X# class SaleItem(models.Model):
         STATUS_CHOICES = [
             ( 'A', 'Active' ),
             ( 'D', 'Deleted' ),
@@ -49,11 +47,13 @@ Sprint 4 is the purchase process.
         class Meta:
             ordering = [ 'product__name' ]
 
-
-
 * In the `Sale` class above, note the `recalculate` method, which should recalculate the Sale fields based on its current SaleItem objects. Be sure to skip any deleted SaleItems.
 
-## `user.get_shopping_cart()`
+
+# # Write the methods for the class Models above (Sale Methods)
+
+
+# # `user.get_shopping_cart()`
 
 * Add the following method to your User model. This is an example of a convenience function:
 
@@ -67,7 +67,7 @@ Sprint 4 is the purchase process.
 
 * Throughout your code, you can now use: `sale = request.user.get_shopping_cart()`
 
-## "Purchase this Item" Form: `/catalog/product/<pid>/`
+# # "Purchase this Item" Form: `/catalog/product/<pid>/`
 
 * Add a Django-style form:
   * A quantity text field.
@@ -77,8 +77,8 @@ Sprint 4 is the purchase process.
   * Clean method should also check quantity available and return "quantity not available" message if needed. Be sure to include any quantity already in the user's cart.
   * If form is valid, create or get the user's shopping cart Sale object (purchased=None), add a SaleItem record, and forward to shopping cart page: HttpResponseRedirect('/catalog/cart/').
   * If the product is already in the user's cart, adjust the quantity instead of adding a new `SaleItem`.
-
-## Shopping Cart: `/catalog/cart/`
+ 
+# # Shopping Cart: `/catalog/cart/`
 
 * Show a table of products and quantities in the user's shopping cart Sale object (purchased=None). Be sure to skip any deleted SaleItems. The columns are as shown in the following example:
 
@@ -96,7 +96,7 @@ Sprint 4 is the purchase process.
 * Show a row for tax, which we'll calculate at a flat 5% rate.
 * Below the table, a "Checkout Now" button goes to the checkout page.
 
-## Checkout Page: `/catalog/checkout/`
+# # Checkout Page: `/catalog/checkout/`
 
 * Show a form containing address fields: address, city, state, zip, etc.
 * Create an account at https://stripe.com.
@@ -120,7 +120,7 @@ Sprint 4 is the purchase process.
   * Update the `purchased` and `charge_id` fields in the shopping cart, which turns it into a real Sale.
   * Forward the user to the "receipt" page.
 
-## Receipt: `/catalog/receipt/<saleid>/`
+# # Receipt: `/catalog/receipt/<saleid>/`
 
 * This page can show the receipt for any sale object
 * Show a table of products purchased (similar to the cart page)

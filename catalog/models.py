@@ -1,6 +1,7 @@
 from django.db import models
 import datetime
 from django.conf import settings
+from decimal import Decimal
 
 # Create your models here.
 
@@ -29,6 +30,7 @@ class Category(models.Model):
 
 ##  Product can have 1 and only 1 Category
 ##  Product can have many ProductImages
+##  Product can be many SaleItem(s) for different Sales
 class Product(models.Model):
     # deletion from DB will cascade from Category down through product
     category = models.ForeignKey(Category, verbose_name="product category", 
@@ -90,3 +92,50 @@ class ProductImage(models.Model):
     def image_url(self):
         "Return an absolute URL to this image."
         return settings.STATIC_URL + 'catalog/media/products/' + self.filename
+
+
+##  Sale can have many SaleItem(s)
+##  Sale can have 1 and only 1 User attached to it
+class Sale(models.Model):
+    user = models.ForeignKey("account.User", on_delete=models.PROTECT)
+    created = models.DateTimeField(auto_now_add=True)
+    purchased = models.DateTimeField(null=True, default=None)
+    subtotal = models.DecimalField(max_digits=7, decimal_places=2, default=Decimal(0))
+    # TAX_RATE = Decimal("0.05")
+    tax = models.DecimalField(max_digits=7, decimal_places=2, default=Decimal(0))
+    # Total = subtotal + Tax
+    total = models.DecimalField(max_digits=7, decimal_places=2, default=Decimal(0))
+    # This will be imported from Stripe
+    charge_id = models.TextField(null=True, default=None)   # successful charge id from stripe
+
+    def recalculate(self):
+        '''Recalculates the subtotal, tax, and total fields. Does not save the object.'''
+        # complete this method!
+
+    def finalize(self, stripeToken):
+        '''Finalizes the sale'''
+        # complete this method!
+        # Ensure this sale isn't already finalized (purchased should be None)
+        # Check product quantities one more time
+        # Call recalculate one more time
+        # Create a charge using the `stripeToken` (https://stripe.com/docs/charges)
+            # be sure to pip install stripe and import stripe into this file
+        # Set purchased=now and charge_id=the id from Stripe
+        # Save
+
+##  SaleItem can be on 1 and only 1 Sale
+##  SaleItem can be for 1 and only 1 product
+class SaleItem(models.Model):
+    STATUS_CHOICES = [
+        # First option is the default - can be changed and code will update default
+        ( 'A', 'Active' ),
+        ( 'D', 'Deleted' ),
+    ]
+    status = models.CharField(max_length=1, default=STATUS_CHOICES[0][0], choices=STATUS_CHOICES)
+    sale = models.ForeignKey("Sale", on_delete=models.PROTECT, related_name="items")
+    product = models.ForeignKey("Product", on_delete=models.PROTECT)
+    quantity = models.IntegerField(default=0)
+    price = models.DecimalField(max_digits=7, decimal_places=2, default=Decimal(0))
+    # This is an inner class for SaleItem
+    class Meta:
+        ordering = [ 'product__name' ]
