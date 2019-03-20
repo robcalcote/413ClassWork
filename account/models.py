@@ -15,3 +15,8 @@ class User(AbstractUser):
     # date_joined
     birth_date = models.DateTimeField("User Birth Date", null=True)
     favorite_color = models.TextField("User Favorite Color", null=True)
+
+    def get_shopping_cart(self):
+        from catalog import models as cmod
+        # retrieve (or create) a Sale with purchased=None for this user
+        # return the Sale object
