@@ -110,7 +110,8 @@ class Sale(models.Model):
 
     def recalculate(self):
         '''Recalculates the subtotal, tax, and total fields. Does not save the object.'''
-        # complete this method!
+        self.tax = (self.subtotal * .05)
+        self.total = (self.tax + self.subtotal)
 
     def finalize(self, stripeToken):
         '''Finalizes the sale'''
