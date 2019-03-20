@@ -2,6 +2,7 @@ from django.db import models
 import datetime
 from django.conf import settings
 from decimal import Decimal
+import stripe
 
 # Create your models here.
 
@@ -94,6 +95,8 @@ class ProductImage(models.Model):
         return settings.STATIC_URL + 'catalog/media/products/' + self.filename
 
 
+TAX_RATE = Decimal("0.05")
+
 ##  Sale can have many SaleItem(s)
 ##  Sale can have 1 and only 1 User attached to it
 class Sale(models.Model):
@@ -101,7 +104,6 @@ class Sale(models.Model):
     created = models.DateTimeField(auto_now_add=True)
     purchased = models.DateTimeField(null=True, default=None)
     subtotal = models.DecimalField(max_digits=7, decimal_places=2, default=Decimal(0))
-    # TAX_RATE = Decimal("0.05")
     tax = models.DecimalField(max_digits=7, decimal_places=2, default=Decimal(0))
     # Total = subtotal + Tax
     total = models.DecimalField(max_digits=7, decimal_places=2, default=Decimal(0))
@@ -110,18 +112,29 @@ class Sale(models.Model):
 
     def recalculate(self):
         '''Recalculates the subtotal, tax, and total fields. Does not save the object.'''
-        self.tax = (self.subtotal * .05)
+        for si in self.items:
+            item_subtotal = si.quantity * si.price
+            self.subtotal += item_subtotal        
+        self.tax = (self.subtotal * TAX_RATE)
         self.total = (self.tax + self.subtotal)
 
     def finalize(self, stripeToken):
         '''Finalizes the sale'''
         # complete this method!
         # Ensure this sale isn't already finalized (purchased should be None)
-        # Check product quantities one more time
-        # Call recalculate one more time
+        if self.purchased == None:
+            # Check product quantities one more time
+            for si in self.items.filter(status='A'):
+                product_quantity = si.product.quantity
+                if si.quantity > product_quantity:
+                    raise ValueError('Quantity available is less than quantity requested.')
+            # Call recalculate one more time
+            self.recalculate()
         # Create a charge using the `stripeToken` (https://stripe.com/docs/charges)
             # be sure to pip install stripe and import stripe into this file
+        
         # Set purchased=now and charge_id=the id from Stripe
+        
         # Save
 
 ##  SaleItem can be on 1 and only 1 Sale
