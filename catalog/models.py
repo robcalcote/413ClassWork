@@ -94,7 +94,7 @@ class ProductImage(models.Model):
         "Return an absolute URL to this image."
         return settings.STATIC_URL + 'catalog/media/products/' + self.filename
 
-
+# Change this tax rate and the model methods will update as well
 TAX_RATE = Decimal("0.05")
 
 ##  Sale can have many SaleItem(s)
@@ -135,11 +135,13 @@ class Sale(models.Model):
             # Call recalculate one more time
             self.recalculate()
         # Create a charge using the `stripeToken` (https://stripe.com/docs/charges)
-            # be sure to pip install stripe and import stripe into this file
-        
+
         # Set purchased=now and charge_id=the id from Stripe
-        
+        self.purchased = datetime.now()
+        #self.charge_id = # id from Stripe
         # Save
+        self.save()
+
 
 ##  SaleItem can be on 1 and only 1 Sale
 ##  SaleItem can be for 1 and only 1 product

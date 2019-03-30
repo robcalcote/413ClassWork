@@ -1,0 +1,48 @@
+<%inherit file="app_base.htm" />
+
+## Title
+<%block name="title">Your Cart</%block>
+
+## Content
+<%block name="center_content">
+    <div id="shopping_cart">
+        <br />
+        <table>
+        ## Headers
+            <tr>
+                <th>Product Image</th>
+                <th>Product Name</th>
+                <th>Quantity</th>
+                <th>Price</th>
+                <th>Extended</th>
+                <th>Actions</th>
+            </tr>
+        ## Content
+        ## Logic to loop through SaleItems
+            <tr>
+                <td>*Image*</td>
+                <td>*ProductItem*</td>
+                <td>*Product.quantity*</td>
+                <td>*product.price*</td>
+                <td>*price x quantity*</td>
+                <td>*Remove button*</td>
+            </tr>
+            <tr>
+                <td></td>
+                <td>Tax</td>
+                <td></td><td></td>
+                ## Logic for tax
+                <td></td>
+                <td></td>
+            </tr>
+            <tr>
+                <td></td>
+                <td>Total</td>
+                <td></td><td></td>
+                ## Logic for Total
+                <td></td>
+                <td></td>
+            </tr>
+        </table>
+    </div>
+</%block>

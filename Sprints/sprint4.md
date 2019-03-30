@@ -54,34 +54,29 @@ Sprint 4 is the purchase process.
 
 
 # # `user.get_shopping_cart()`
-
 * Add the following method to your User model. This is an example of a convenience function:
-
     class User(AbstractUser):
         ...
-
         def get_shopping_cart(self):
             from catalog import models as cmod
             # retrieve (or create) a Sale with purchased=None for this user
             # return the Sale object
-
 * Throughout your code, you can now use: `sale = request.user.get_shopping_cart()`
 
+
 # # "Purchase this Item" Form: `/catalog/product/<pid>/`
-
-* Add a Django-style form:
-  * A quantity text field.
-  * A "Buy Now" button.
-* Form validation/finish on the server:
-  * Clean method should ensure the user is logged in (if not, redirect to login page). Unauthenticated users cannot have a shopping cart.
-  * Clean method should also check quantity available and return "quantity not available" message if needed. Be sure to include any quantity already in the user's cart.
-  * If form is valid, create or get the user's shopping cart Sale object (purchased=None), add a SaleItem record, and forward to shopping cart page: HttpResponseRedirect('/catalog/cart/').
-  * If the product is already in the user's cart, adjust the quantity instead of adding a new `SaleItem`.
+#X# Add a Django-style form:
+   #X# A quantity text field.
+   #X# A "Buy Now" button.
+# # Form validation/finish on the server:
+  #X# Clean method should ensure the user is logged in (if not, redirect to login page). Unauthenticated users cannot have a shopping cart.
+  # # Clean method should also check quantity available and return "quantity not available" message if needed. Be sure to include any quantity already in the user's cart.
+  # # If form is valid, create or get the user's shopping cart Sale object (purchased=None), add a SaleItem record, and forward to shopping cart page: HttpResponseRedirect('/catalog/cart/').
+  # # If the product is already in the user's cart, adjust the quantity instead of adding a new `SaleItem`.
  
+
 # # Shopping Cart: `/catalog/cart/`
-
-* Show a table of products and quantities in the user's shopping cart Sale object (purchased=None). Be sure to skip any deleted SaleItems. The columns are as shown in the following example:
-
+  # # Show a table of products and quantities in the user's shopping cart Sale object (purchased=None). Be sure to skip any deleted SaleItems. The columns are as shown in the following example:
 | Product Image   | Product Name          | Quantity | Price | Extended | Actions |
 |-----------------|-----------------------|----------|-------|----------|---------|
 | ` -OᵔO- `       | Piano Teacher Glasses | 2        | 30.00 |   60.00  | Remove  |
@@ -96,8 +91,9 @@ Sprint 4 is the purchase process.
 * Show a row for tax, which we'll calculate at a flat 5% rate.
 * Below the table, a "Checkout Now" button goes to the checkout page.
 
-# # Checkout Page: `/catalog/checkout/`
 
+
+# # Checkout Page: `/catalog/checkout/`
 * Show a form containing address fields: address, city, state, zip, etc.
 * Create an account at https://stripe.com.
   * Place your Stripe standard, testing key and secret in settings as `settings.STRIPE_PUBLIC_KEY` and `settings.STRIPE_SECRET_KEY`.
@@ -120,7 +116,8 @@ Sprint 4 is the purchase process.
   * Update the `purchased` and `charge_id` fields in the shopping cart, which turns it into a real Sale.
   * Forward the user to the "receipt" page.
 
-# # Receipt: `/catalog/receipt/<saleid>/`
 
+
+# # Receipt: `/catalog/receipt/<saleid>/`
 * This page can show the receipt for any sale object
 * Show a table of products purchased (similar to the cart page)

@@ -1,0 +1,33 @@
+<%inherit file="app_base.htm" />
+
+## Title
+<%block name="title">Checkout</%block>
+
+## Content
+<%block name="center_content">
+    <div id="checkout_form">
+        <br />
+        <table>
+        ## Headers
+            <tr><th></th><th></th></tr>
+        ## Content
+        ## Logic to loop through SaleItems
+            <tr>
+                <td><label for="address">Address:</label></td>
+                <td></td>
+            </tr>
+            <tr>
+                <td><label for="city">City:</label></td>
+                <td></td>
+            </tr>
+            <tr>
+                <td><label for="state">State:</label></td>
+                <td></td>
+            </tr>
+            <tr>
+                <td><label for="zip">ZIP Code:</label></td>
+                <td></td>
+            </tr>
+        </table>
+    </div>
+</%block>
