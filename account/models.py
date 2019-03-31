@@ -22,5 +22,6 @@ class User(AbstractUser):
         cart = cmod.Sale.objects.filter(user=self, purchased=None)
         if cart is None:
             cart = cmod.Sale(user=self, purchased=None)
+            print(cart.user)
         # return the Sale object
         return cart

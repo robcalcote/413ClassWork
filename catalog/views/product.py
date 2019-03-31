@@ -13,11 +13,21 @@ import math
 @view_function
 def process_request(request, product:cmod.Product):
 
+    sale = request.user.get_shopping_cart()
+    sale.update()
+
     if request.method == 'POST':
         form = BuyNowForm(request.POST)
+        form.product = product
         if form.is_valid():
             if request.user.is_authenticated:
                 # Add a SaleItem record with Foreign Key matching that of the new Sale object
+                saleItem = cmod.SaleItem.objects.filter(sale=sale)
+                saleItem.product=product
+                saleItem.quantity=form.data['quantity']
+                saleItem.price=product.price
+                saleItem.update()
+                print(saleItem.price, saleItem.quantity, saleItem.product.name)
                 return HttpResponseRedirect('/catalog/cart/')
             else:
                 return HttpResponseRedirect('/account/login/')
@@ -41,12 +51,16 @@ class BuyNowForm(forms.Form):
     quantity = forms.CharField(label='Quantity', widget=forms.NumberInput())
 
     def clean(self):
-        try:
-            requested_quantity < product.quantity
-        except:
-            raise forms.ValidationError('quantity not available')
-
-        return self.cleaned_data
+        # also check the cart quantity
+        quantity_available = int(self.product.quantity)
+        print(quantity_available)
+        quantity_requested = int(self.data['quantity'])
+        print(quantity_requested)
+        if quantity_available >= quantity_requested:
+            print('Yes you have enough!!!')
+        else:
+            raise forms.ValidationError('quantity not available')            
+            return self.cleaned_data
 
 
 

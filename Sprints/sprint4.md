@@ -19,7 +19,7 @@ Sprint 4 is the purchase process.
         total = models.DecimalField(max_digits=7, decimal_places=2, default=Decimal(0))
         charge_id = models.TextField(null=True, default=None)   # successful charge id from stripe
 
-        def recalculate(self):
+        #X# def recalculate(self):
             '''Recalculates the subtotal, tax, and total fields. Does not save the object.'''
             # complete this method!
 

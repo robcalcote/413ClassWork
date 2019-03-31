@@ -12,13 +12,14 @@ import math
 @view_function
 def process_request(request):
 
-    
+    cart = request.user.get_shopping_cart()
+    cart.update()
+
+    cartItems = 
 
     # Data passed to the .html page
     context = {
-        'product': product,
-        'allImages': allImages,
-        'form': form,
+        'cartItems': cartItems,
     }
 
     return request.dmp.render('cart.html')

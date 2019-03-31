@@ -20,13 +20,14 @@
         ## Content
         ## Logic to loop through SaleItems
             <tr>
-            
-                <td>*Image*</td>
-                <td>*ProductItem*</td>
-                <td>*Product.quantity*</td>
-                <td>*product.price*</td>
-                <td>*price x quantity*</td>
-                <td>*Remove button*</td>
+                %for si in cartItems:   
+                    <td>${ si.name }</td>
+                    <td>*ProductItem*</td>
+                    <td>*Product.quantity*</td>
+                    <td>*product.price*</td>
+                    <td>*price x quantity*</td>
+                    <td>*Remove button*</td>
+                %endfor
             </tr>
             <tr>
                 <td></td>
