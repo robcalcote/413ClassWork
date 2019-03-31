@@ -18,15 +18,22 @@ def process_request(request, product:cmod.Product):
         if form.is_valid():
             if request.user.is_authenticated:
                 cart = request.user.get_shopping_cart()
-                # Add a SaleItem record with Foreign Key matching that of the new Sale object
-                saleItem=cmod.SaleItem()
                 for item in cart:
-                    saleItem.sale=item
-                saleItem.product=product
-                saleItem.quantity=form.data['quantity']
-                saleItem.price=product.price
-                saleItem.save()
-                print(saleItem.sale, saleItem.price, saleItem.quantity, saleItem.product.name)
+                    if item.items.count() == 0: # This code is only reachable if the cart is totally empty
+                        # add a new object
+                        FirstItem=cmod.SaleItem(sale=item, product=product, quantity=form.data['quantity'], price=product.price)
+                        FirstItem.save()
+                    else: # possible outcomes - increment existing, add new
+                        incrementExisting=cmod.SaleItem.objects.filter(sale=item, product=product, status='A')
+                        if incrementExisting.count() > 0: # increment existing
+                            for item in incrementExisting:
+                                item.quantity += int(form.data['quantity'])
+                                if (product.quantity < item.quantity):
+                                    raise forms.ValidationError('quantity not available')
+                                item.save()
+                        else: # add new item
+                            addNewItem=cmod.SaleItem(sale=item, product=product, quantity=form.data['quantity'], price=product.price)
+                            addNewItem.save()
                 return HttpResponseRedirect('/catalog/cart/')
             else:
                 return HttpResponseRedirect('/account/login/')
@@ -53,12 +60,12 @@ class BuyNowForm(forms.Form):
         quantity_available = int(self.product.quantity)
         print(quantity_available)
         quantity_requested = int(self.data['quantity'])
-        print(quantity_requested)
-        if quantity_available >= quantity_requested:
-            print('Yes you have enough!!!')
-        else:
-            raise forms.ValidationError('quantity not available')            
+        if quantity_available < quantity_requested:
+            raise forms.ValidationError('quantity not available')                       
         return self.cleaned_data
+
+
+
 
 #### This is where AJAX ends
 @view_function

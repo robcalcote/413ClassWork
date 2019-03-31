@@ -29,25 +29,36 @@
                     <td><a class="button" href="/catalog/cart.remove/${ si.product.id }">Remove</a></td>
                 </tr>
             %endfor
+            <tr><td></td><td></td><td></td>
+            <td></td><td></td><td></td></tr>
             <tr>
                 <td></td>
-                <td>
-                % for si in cartItems:
-                % endfor
-                </td>
+                <td>Subtotal</td>
                 <td></td><td></td>
-                ## Logic for tax
-                <td></td>
+                <td>${ sale.subtotal }</td>
                 <td></td>
             </tr>
+            <tr>
+                <td></td>
+                <td>Tax</td>
+                <td></td><td></td>
+                <td>${ sale.tax }</td>
+                <td></td>
+            </tr>
+            <tr><td></td><td></td><td></td>
+            <td></td><td></td><td></td></tr>
             <tr>
                 <td></td>
                 <td>Total</td>
                 <td></td><td></td>
-                ## Logic for Total
-                <td></td>
+                <td>${ sale.total }</td>
                 <td></td>
             </tr>
         </table>
+    </div>
+    <br />
+    <div id="checkout_button">
+        <a class="button btn btn-secondary" type="button" 
+        id="dropdownMenuButton" href="/catalog/checkout/">Checkout Now</a>
     </div>
 </%block>

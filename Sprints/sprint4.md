@@ -64,19 +64,19 @@ Sprint 4 is the purchase process.
 #X# Throughout your code, you can now use: `sale = request.user.get_shopping_cart()`
 
 
-# # "Purchase this Item" Form: `/catalog/product/<pid>/`
+#X# "Purchase this Item" Form: `/catalog/product/<pid>/`
 #X# Add a Django-style form:
    #X# A quantity text field.
    #X# A "Buy Now" button.
-# # Form validation/finish on the server:
+#X# Form validation/finish on the server:
   #X# Clean method should ensure the user is logged in (if not, redirect to login page). Unauthenticated users cannot have a shopping cart.
-  # # Clean method should also check quantity available and return "quantity not available" message if needed. Be sure to include any quantity already in the user's cart.
-  # # If form is valid, create or get the user's shopping cart Sale object (purchased=None), add a SaleItem record, and forward to shopping cart page: HttpResponseRedirect('/catalog/cart/').
-  # # If the product is already in the user's cart, adjust the quantity instead of adding a new `SaleItem`.
+  #X# Clean method should also check quantity available and return "quantity not available" message if needed. Be sure to include any quantity already in the user's cart.
+  #X# If form is valid, create or get the user's shopping cart Sale object (purchased=None), add a SaleItem record, and forward to shopping cart page: HttpResponseRedirect('/catalog/cart/').
+  #X# If the product is already in the user's cart, adjust the quantity instead of adding a new `SaleItem`.
  
 
-# # Shopping Cart: `/catalog/cart/`
-  # # Show a table of products and quantities in the user's shopping cart Sale object (purchased=None). Be sure to skip any deleted SaleItems. The columns are as shown in the following example:
+#X# Shopping Cart: `/catalog/cart/`
+  #X# Show a table of products and quantities in the user's shopping cart Sale object (purchased=None). Be sure to skip any deleted SaleItems. The columns are as shown in the following example:
 | Product Image   | Product Name          | Quantity | Price | Extended | Actions |
 |-----------------|-----------------------|----------|-------|----------|---------|
 | ` -OᵔO- `       | Piano Teacher Glasses | 2        | 30.00 |   60.00  | Remove  |
@@ -84,12 +84,12 @@ Sprint 4 is the purchase process.
 |                 | Tax                   |          |       |    6.50  |         |
 |                 | Total                 |          |       |  136.50  |         |
 
-# # In the table, the `Remove` button is a link `<a href="/catalog/cart.remove/<pid>">`.  In this view function:
-  # # Set the status of the SaleItem to 'D' (deleted) and save.
-  # # Update the sale object totals and save.
-  # # Then redirect the browser back to the `/catalog/cart` page.
-# # Show a row for tax, which we'll calculate at a flat 5% rate.
-# # Below the table, a "Checkout Now" button goes to the checkout page.
+#X# In the table, the `Remove` button is a link `<a href="/catalog/cart.remove/<pid>">`.  In this view function:
+  #X# Set the status of the SaleItem to 'D' (deleted) and save.
+  #X# Update the sale object totals and save.
+  #X# Then redirect the browser back to the `/catalog/cart` page.
+#X# Show a row for tax, which we'll calculate at a flat 5% rate.
+#X# Below the table, a "Checkout Now" button goes to the checkout page.
 
 
 
