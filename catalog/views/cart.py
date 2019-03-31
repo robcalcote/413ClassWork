@@ -13,13 +13,20 @@ import math
 def process_request(request):
 
     cart = request.user.get_shopping_cart()
-    cart.update()
 
-    cartItems = 
+    for item in cart:
+        cartItems = cmod.SaleItem.objects.filter(sale=item)
 
     # Data passed to the .html page
     context = {
         'cartItems': cartItems,
     }
 
-    return request.dmp.render('cart.html')
+    return request.dmp.render('cart.html', context)
+
+@view_function
+def remove(request, saleItem:cmod.SaleItem):
+    saleItem.status = 'D'
+    saleItem.save()
+
+    return HttpResponseRedirect('/catalog/cart')

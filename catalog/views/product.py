@@ -12,22 +12,21 @@ import math
 
 @view_function
 def process_request(request, product:cmod.Product):
-
-    sale = request.user.get_shopping_cart()
-    sale.update()
-
     if request.method == 'POST':
         form = BuyNowForm(request.POST)
         form.product = product
         if form.is_valid():
             if request.user.is_authenticated:
+                cart = request.user.get_shopping_cart()
                 # Add a SaleItem record with Foreign Key matching that of the new Sale object
-                saleItem = cmod.SaleItem.objects.filter(sale=sale)
+                saleItem=cmod.SaleItem()
+                for item in cart:
+                    saleItem.sale=item
                 saleItem.product=product
                 saleItem.quantity=form.data['quantity']
                 saleItem.price=product.price
-                saleItem.update()
-                print(saleItem.price, saleItem.quantity, saleItem.product.name)
+                saleItem.save()
+                print(saleItem.sale, saleItem.price, saleItem.quantity, saleItem.product.name)
                 return HttpResponseRedirect('/catalog/cart/')
             else:
                 return HttpResponseRedirect('/account/login/')
@@ -46,7 +45,6 @@ def process_request(request, product:cmod.Product):
 
     return request.dmp.render('product.html', context)
 
-
 class BuyNowForm(forms.Form):
     quantity = forms.CharField(label='Quantity', widget=forms.NumberInput())
 
@@ -60,9 +58,7 @@ class BuyNowForm(forms.Form):
             print('Yes you have enough!!!')
         else:
             raise forms.ValidationError('quantity not available')            
-            return self.cleaned_data
-
-
+        return self.cleaned_data
 
 #### This is where AJAX ends
 @view_function

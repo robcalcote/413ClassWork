@@ -18,10 +18,9 @@ class User(AbstractUser):
     favorite_color = models.TextField("User Favorite Color", null=True)
 
     def get_shopping_cart(self):
-        # retrieve (or create) a Sale with purchased=None for this user
-        cart = cmod.Sale.objects.filter(user=self, purchased=None)
-        if cart is None:
+        cart = cmod.Sale.objects.filter(user=self).filter(purchased=None)
+
+        if cart.count() == 0:
             cart = cmod.Sale(user=self, purchased=None)
-            print(cart.user)
-        # return the Sale object
+            cart.save()
         return cart

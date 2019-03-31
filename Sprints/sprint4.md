@@ -53,15 +53,15 @@ Sprint 4 is the purchase process.
 # # Write the methods for the class Models above (Sale Methods)
 
 
-# # `user.get_shopping_cart()`
-* Add the following method to your User model. This is an example of a convenience function:
+#X# `user.get_shopping_cart()`
+#X# Add the following method to your User model. This is an example of a convenience function:
     class User(AbstractUser):
         ...
         def get_shopping_cart(self):
             from catalog import models as cmod
             # retrieve (or create) a Sale with purchased=None for this user
             # return the Sale object
-* Throughout your code, you can now use: `sale = request.user.get_shopping_cart()`
+#X# Throughout your code, you can now use: `sale = request.user.get_shopping_cart()`
 
 
 # # "Purchase this Item" Form: `/catalog/product/<pid>/`
@@ -84,12 +84,12 @@ Sprint 4 is the purchase process.
 |                 | Tax                   |          |       |    6.50  |         |
 |                 | Total                 |          |       |  136.50  |         |
 
-* In the table, the `Remove` button is a link `<a href="/catalog/cart.remove/<pid>">`.  In this view function:
-  *  Set the status of the SaleItem to 'D' (deleted) and save.
-  *  Update the sale object totals and save.
-  *  Then redirect the browser back to the `/catalog/cart` page.
-* Show a row for tax, which we'll calculate at a flat 5% rate.
-* Below the table, a "Checkout Now" button goes to the checkout page.
+# # In the table, the `Remove` button is a link `<a href="/catalog/cart.remove/<pid>">`.  In this view function:
+  # # Set the status of the SaleItem to 'D' (deleted) and save.
+  # # Update the sale object totals and save.
+  # # Then redirect the browser back to the `/catalog/cart` page.
+# # Show a row for tax, which we'll calculate at a flat 5% rate.
+# # Below the table, a "Checkout Now" button goes to the checkout page.
 
 
 

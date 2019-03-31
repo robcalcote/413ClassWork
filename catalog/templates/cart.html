@@ -19,19 +19,22 @@
             </tr>
         ## Content
         ## Logic to loop through SaleItems
-            <tr>
-                %for si in cartItems:   
-                    <td>${ si.name }</td>
-                    <td>*ProductItem*</td>
-                    <td>*Product.quantity*</td>
-                    <td>*product.price*</td>
-                    <td>*price x quantity*</td>
-                    <td>*Remove button*</td>
-                %endfor
-            </tr>
+            % for si in cartItems:
+                <tr>   
+                    <td></td>
+                    <td>${ si.product.name }</td>
+                    <td>${ si.quantity }</td>
+                    <td>${ si.price }</td>
+                    <td>${ si.price * si.quantity }</td>
+                    <td><a class="button" href="/catalog/cart.remove/${ si.product.id }">Remove</a></td>
+                </tr>
+            %endfor
             <tr>
                 <td></td>
-                <td>Tax</td>
+                <td>
+                % for si in cartItems:
+                % endfor
+                </td>
                 <td></td><td></td>
                 ## Logic for tax
                 <td></td>
