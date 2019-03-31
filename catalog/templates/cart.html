@@ -20,8 +20,8 @@
         ## Content
         ## Logic to loop through SaleItems
             % for si in cartItems:
-                <tr>   
-                    <td></td>
+                <tr>
+                    <td><img src="${si.product.image_url()}" width="60px" height="60px"></td>
                     <td>${ si.product.name }</td>
                     <td>${ si.quantity }</td>
                     <td>${ si.price }</td>
