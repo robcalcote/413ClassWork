@@ -114,7 +114,7 @@ class Sale(models.Model):
         '''Recalculates the subtotal, tax, and total fields. Does not save the object.'''
         # necessary to instantiate item_subtotal as a decimal so that the math is accurate
         item_subtotal = Decimal("0")
-        # This line is the same as:
+        # This line is the same as: (see 'related_name' below in SaleItem)
         # for si in SaleItem.objets.filter(sale=self, status='A')
         for si in self.items.filter(status='A'):
             item_subtotal = si.quantity * si.price

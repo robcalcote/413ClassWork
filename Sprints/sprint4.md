@@ -94,15 +94,15 @@ Sprint 4 is the purchase process.
 
 
 # # Checkout Page: `/catalog/checkout/`
-* Show a form containing address fields: address, city, state, zip, etc.
-* Create an account at https://stripe.com.
-  * Place your Stripe standard, testing key and secret in settings as `settings.STRIPE_PUBLIC_KEY` and `settings.STRIPE_SECRET_KEY`.
-  * You can set `stripe.api_key` in settings as well.
-* Use the Stripe.com "Checkout" method to show the payment control.
-  * Note that Stripe offers several methods of collecting payments. We're using one at https://stripe.com/docs/checkout.
-  * Your Django form should include a hidden "stripeToken" field to put the returned stripe token into: `stripeToken = forms.CharField(widget=forms.HiddenInput())`
-* You don't need to validate the address fields. You can assume they are entered correctly.
-* In the form's clean() method, do something like this:
+  #X# Show a form containing address fields: address, city, state, zip, etc.
+# # Create an account at https://stripe.com.
+  # # Place your Stripe standard, testing key and secret in settings as `settings.STRIPE_PUBLIC_KEY` and `settings.STRIPE_SECRET_KEY`.
+  # # You can set `stripe.api_key` in settings as well.
+# # Use the Stripe.com "Checkout" method to show the payment control.
+  # # Note that Stripe offers several methods of collecting payments. We're using one at https://stripe.com/docs/checkout.
+  # # Your Django form should include a hidden "stripeToken" field to put the returned stripe token into: `stripeToken = forms.CharField(widget=forms.HiddenInput())`
+# # You don't need to validate the address fields. You can assume they are entered correctly.
+#X# In the form's clean() method, do something like this:
 
         def clean(self):
             try:
@@ -110,14 +110,14 @@ Sprint 4 is the purchase process.
             except Exception as e:
                 raise forms.ValidationError('Error processing payment: {}'.format(e))
 
-* See the Sale object above for ideas on the `finalize()` method.
-* Upon successful form submission and charge:
-  * Update product quantities in the database.
-  * Update the `purchased` and `charge_id` fields in the shopping cart, which turns it into a real Sale.
-  * Forward the user to the "receipt" page.
+# # See the Sale object above for ideas on the `finalize()` method.
+# # Upon successful form submission and charge:
+  # # Update product quantities in the database.
+  # # Update the `purchased` and `charge_id` fields in the shopping cart, which turns it into a real Sale.
+  # # Forward the user to the "receipt" page.
 
 
 
 # # Receipt: `/catalog/receipt/<saleid>/`
-* This page can show the receipt for any sale object
-* Show a table of products purchased (similar to the cart page)
+  # # This page can show the receipt for any sale object
+  # # Show a table of products purchased (similar to the cart page)
