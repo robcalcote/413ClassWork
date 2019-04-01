@@ -147,7 +147,7 @@ class Sale(models.Model):
         )
         # change final attributes of Sale Object, update DB quantities, and save
         self.purchased = datetime.datetime.now()
-        self.charge_id = stripeToken
+        self.charge_id = charge['id']
         update_quantity = SaleItem.objects.filter(sale=self, status='A')
         for item in update_quantity:
             item.product.quantity -= item.quantity
