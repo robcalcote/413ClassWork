@@ -106,9 +106,8 @@ class Sale(models.Model):
     purchased = models.DateTimeField(null=True, default=None)
     subtotal = models.DecimalField(max_digits=7, decimal_places=2, default=Decimal(0))
     tax = models.DecimalField(max_digits=7, decimal_places=2, default=Decimal(0))
-    # Total = subtotal + Tax
     total = models.DecimalField(max_digits=7, decimal_places=2, default=Decimal(0))
-    # This will be imported from Stripe
+    # This will be imported from Stripe upon completed sale
     charge_id = models.TextField(null=True, default=None)   # successful charge id from stripe
 
     def recalculate(self):
@@ -149,11 +148,6 @@ class Sale(models.Model):
         # change final attributes of Sale Object, update DB quantities, and save
         self.purchased = datetime.datetime.now()
         self.charge_id = stripeToken
-        '''
-        CONTINUE HERE
-        . Display purchased items on receipt.html
-        . Cheer
-        '''
         update_quantity = SaleItem.objects.filter(sale=self, status='A')
         for item in update_quantity:
             item.product.quantity -= item.quantity

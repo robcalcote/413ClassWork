@@ -13,10 +13,10 @@
                 ## Stripe code
                 <script
                     src="https://checkout.stripe.com/checkout.js" class="stripe-button"
-                    data-key="pk_test_LUyr9dTrFLdBNLiJqIIzJQjp00uGwGJ0nk"
+                    data-key="${ settings.STRIPE_PUBLIC_KEY }"
                     data-amount="${ sale_total }"
                     data-name="Sprint4"
-                    data-description="Widget"
+                    data-description="Fill this out to send the data to Stripe!"
                     data-image="https://stripe.com/img/documentation/checkout/marketplace.png"
                     data-locale="auto">
                 </script>
