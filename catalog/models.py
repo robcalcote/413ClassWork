@@ -1,4 +1,5 @@
 from django.db import models
+import time
 import datetime
 from django.conf import settings
 from decimal import Decimal
@@ -119,27 +120,44 @@ class Sale(models.Model):
         for si in self.items.filter(status='A'):
             item_subtotal = si.quantity * si.price
             self.subtotal += item_subtotal        
-        self.tax = (self.subtotal * TAX_RATE)
-        self.total = (self.tax + self.subtotal)
+        self.tax = round((self.subtotal * TAX_RATE), 2)
+        self.total = round((self.tax + self.subtotal), 2)
 
     def finalize(self, stripeToken):
         '''Finalizes the sale'''
         # complete this method!
         # Ensure this sale isn't already finalized (purchased should be None)
-        if self.purchased == None:
+        if self.purchased != None:
+            raise ValueError('This sale has already been finalized.')
+        elif self.purchased == None:
             # Check product quantities one more time
             for si in self.items.filter(status='A'):
-                product_quantity = si.product.quantity
-                if si.quantity > product_quantity:
+                quantity_available = si.product.quantity
+                quantity_requested = si.quantity
+                if quantity_requested > quantity_available:
                     raise ValueError('Quantity available is less than quantity requested.')
             # Call recalculate one more time
             self.recalculate()
         # Create a charge using the `stripeToken` (https://stripe.com/docs/charges)
-
-        # Set purchased=now and charge_id=the id from Stripe
-        self.purchased = datetime.now()
-        #self.charge_id = # id from Stripe
-        # Save
+        charge = stripe.Charge.create(
+            # data must be given to stripe in cents (decimal)
+            amount=int(self.total * Decimal("100.0")),
+            currency='usd',
+            description='Purchase for {}'.format(self.user.username),
+            source=stripeToken,
+        )
+        # change final attributes of Sale Object, update DB quantities, and save
+        self.purchased = datetime.datetime.now()
+        self.charge_id = stripeToken
+        '''
+        CONTINUE HERE
+        . Display purchased items on receipt.html
+        . Cheer
+        '''
+        update_quantity = SaleItem.objects.filter(sale=self, status='A')
+        for item in update_quantity:
+            item.product.quantity -= item.quantity
+            item.product.save()
         self.save()
 
 

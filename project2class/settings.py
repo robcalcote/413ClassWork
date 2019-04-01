@@ -12,6 +12,7 @@ https://docs.djangoproject.com/en/2.1/ref/settings/
 
 import os
 import shutil
+import stripe
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
@@ -27,6 +28,12 @@ SECRET_KEY = '*j(+y$8)_syako+2@e2_xn_1^m=kznqsx^qpmivgxo9=!m102g'
 DEBUG = True
 
 ALLOWED_HOSTS = []
+
+
+# These are the keys for stripe
+STRIPE_PUBLIC_KEY = "pk_test_LUyr9dTrFLdBNLiJqIIzJQjp00uGwGJ0nk"
+STRIPE_SECRET_KEY = "sk_test_LfQldqSZtl2cgMilulhPME6M00XD5kG4YL"
+stripe.api_key = STRIPE_SECRET_KEY
 
 
 # Application definition

@@ -5,29 +5,22 @@
 
 ## Content
 <%block name="center_content">
-    <div id="checkout_form">
-        <br />
-        <table>
-        ## Headers
-            <tr><th></th><th></th></tr>
-        ## Content
-        ## Logic to loop through SaleItems
-            <tr>
-                <td><label for="address">Address:</label></td>
-                <td></td>
-            </tr>
-            <tr>
-                <td><label for="city">City:</label></td>
-                <td></td>
-            </tr>
-            <tr>
-                <td><label for="state">State:</label></td>
-                <td></td>
-            </tr>
-            <tr>
-                <td><label for="zip">ZIP Code:</label></td>
-                <td></td>
-            </tr>
-        </table>
+    <br />
+    <div class="checkout-form">
+        <form method="post">
+            <table>
+                ${ form.as_table() }
+                ## Stripe code
+                <script
+                    src="https://checkout.stripe.com/checkout.js" class="stripe-button"
+                    data-key="pk_test_LUyr9dTrFLdBNLiJqIIzJQjp00uGwGJ0nk"
+                    data-amount="${ sale_total }"
+                    data-name="Sprint4"
+                    data-description="Widget"
+                    data-image="https://stripe.com/img/documentation/checkout/marketplace.png"
+                    data-locale="auto">
+                </script>
+            </table>
+        </form>
     </div>
 </%block>

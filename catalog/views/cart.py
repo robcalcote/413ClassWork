@@ -14,14 +14,13 @@ def process_request(request):
 
     cart = request.user.get_shopping_cart()
 
-    for sale in cart:
-        cartItems = cmod.SaleItem.objects.filter(sale=sale, status='A')
-        sale.recalculate()
+    cartItems = cmod.SaleItem.objects.filter(sale=cart, status='A')
+    cart.recalculate()
 
     # Data passed to the .html page
     context = {
         'cartItems': cartItems,
-        'sale': sale
+        'cart': cart
     }
 
     return request.dmp.render('cart.html', context)
@@ -38,9 +37,8 @@ def process_request(request):
 @view_function
 def remove(request, product:cmod.Product):
     cart = request.user.get_shopping_cart()
-    for sale in cart:
-        saleItem=cmod.SaleItem.objects.get(product=product, sale=sale, status='A')
-        saleItem.status = 'D'
-        saleItem.save()
+    saleItem=cmod.SaleItem.objects.get(product=product, sale=cart, status='A')
+    saleItem.status = 'D'
+    saleItem.save()
 
     return HttpResponseRedirect('/catalog/cart')
