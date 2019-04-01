@@ -1,4 +1,5 @@
 from django.db import models
+import time
 import datetime
 from django.conf import settings
 from decimal import Decimal
@@ -94,6 +95,8 @@ class ProductImage(models.Model):
         "Return an absolute URL to this image."
         return settings.STATIC_URL + 'catalog/media/products/' + self.filename
 
+# Change this tax rate and the model methods will update as well
+TAX_RATE = Decimal("0.05")
 
 TAX_RATE = Decimal("0.05")
 
@@ -105,37 +108,54 @@ class Sale(models.Model):
     purchased = models.DateTimeField(null=True, default=None)
     subtotal = models.DecimalField(max_digits=7, decimal_places=2, default=Decimal(0))
     tax = models.DecimalField(max_digits=7, decimal_places=2, default=Decimal(0))
-    # Total = subtotal + Tax
     total = models.DecimalField(max_digits=7, decimal_places=2, default=Decimal(0))
-    # This will be imported from Stripe
+    # This will be imported from Stripe upon completed sale
     charge_id = models.TextField(null=True, default=None)   # successful charge id from stripe
 
     def recalculate(self):
         '''Recalculates the subtotal, tax, and total fields. Does not save the object.'''
-        for si in self.items:
+        # necessary to instantiate item_subtotal as a decimal so that the math is accurate
+        item_subtotal = Decimal("0")
+        # This line is the same as: (see 'related_name' below in SaleItem)
+        # for si in SaleItem.objets.filter(sale=self, status='A')
+        for si in self.items.filter(status='A'):
             item_subtotal = si.quantity * si.price
             self.subtotal += item_subtotal        
-        self.tax = (self.subtotal * TAX_RATE)
-        self.total = (self.tax + self.subtotal)
+        self.tax = round((self.subtotal * TAX_RATE), 2)
+        self.total = round((self.tax + self.subtotal), 2)
 
     def finalize(self, stripeToken):
         '''Finalizes the sale'''
         # complete this method!
         # Ensure this sale isn't already finalized (purchased should be None)
-        if self.purchased == None:
+        if self.purchased != None:
+            raise ValueError('This sale has already been finalized.')
+        elif self.purchased == None:
             # Check product quantities one more time
             for si in self.items.filter(status='A'):
-                product_quantity = si.product.quantity
-                if si.quantity > product_quantity:
+                quantity_available = si.product.quantity
+                quantity_requested = si.quantity
+                if quantity_requested > quantity_available:
                     raise ValueError('Quantity available is less than quantity requested.')
             # Call recalculate one more time
             self.recalculate()
         # Create a charge using the `stripeToken` (https://stripe.com/docs/charges)
-            # be sure to pip install stripe and import stripe into this file
-        
-        # Set purchased=now and charge_id=the id from Stripe
-        
-        # Save
+        charge = stripe.Charge.create(
+            # data must be given to stripe in cents (decimal)
+            amount=int(self.total * Decimal("100.0")),
+            currency='usd',
+            description='Purchase for {}'.format(self.user.username),
+            source=stripeToken,
+        )
+        # change final attributes of Sale Object, update DB quantities, and save
+        self.purchased = datetime.datetime.now()
+        self.charge_id = charge['id']
+        update_quantity = SaleItem.objects.filter(sale=self, status='A')
+        for item in update_quantity:
+            item.product.quantity -= item.quantity
+            item.product.save()
+        self.save()
+
 
 ##  SaleItem can be on 1 and only 1 Sale
 ##  SaleItem can be for 1 and only 1 product

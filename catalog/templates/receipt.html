@@ -1,0 +1,64 @@
+<%inherit file="app_base.htm" />
+
+## Title
+<%block name="title">Your Receipt</%block>
+
+## Content
+<%block name="center_content">
+    <div id="shopping_cart">
+        <br />
+        <table>
+        ## Headers
+            <tr>
+                <th>Product Image</th>
+                <th>Product Name</th>
+                <th>Quantity</th>
+                <th>Price</th>
+                <th>Extended</th>
+                <th>Actions</th>
+            </tr>
+        ## Content
+        ## Logic to loop through SaleItems
+            % for si in completed:
+                <tr>
+                    <td><img class="cart_picture" src="${si.product.image_url()}"></td>
+                    <td><p class="table_box">${ si.product.name }</p></td>
+                    <td><p class="table_box">${ si.quantity }</p></td>
+                    <td><p class="table_box">${ si.price }</p></td>
+                    <td><p class="table_box">${ si.price * si.quantity }</p></td>
+                    <td><p class="table_box"></p></td>
+                </tr>
+            %endfor
+            <tr><td></td><td></td><td></td>
+            <td></td><td></td><td></td></tr>
+            <tr>
+                <td></td>
+                <td>Subtotal</td>
+                <td></td><td></td>
+                <td>${ sale.subtotal }</td>
+                <td></td>
+            </tr>
+            <tr>
+                <td></td>
+                <td>Tax</td>
+                <td></td><td></td>
+                <td>${ sale.tax }</td>
+                <td></td>
+            </tr>
+            <tr><td></td><td></td><td></td>
+            <td></td><td></td><td></td></tr>
+            <tr>
+                <td></td>
+                <td>Total</td>
+                <td></td><td></td>
+                <td>${ sale.total }</td>
+                <td></td>
+            </tr>
+        </table>
+    </div>
+    <br />
+    <div id="checkout_button">
+        <a class="button btn btn-secondary" type="button" 
+        id="dropdownMenuButton" href="/">Return Home</a>
+    </div>
+</%block>

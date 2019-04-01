@@ -1,0 +1,26 @@
+<%inherit file="app_base.htm" />
+
+## Title
+<%block name="title">Checkout</%block>
+
+## Content
+<%block name="center_content">
+    <br />
+    <div class="checkout-form">
+        <form method="post">
+            <table>
+                ${ form.as_table() }
+                ## Stripe code
+                <script
+                    src="https://checkout.stripe.com/checkout.js" class="stripe-button"
+                    data-key="${ settings.STRIPE_PUBLIC_KEY }"
+                    data-amount="${ sale_total }"
+                    data-name="Sprint4"
+                    data-description="Fill this out to send the data to Stripe!"
+                    data-image="https://stripe.com/img/documentation/checkout/marketplace.png"
+                    data-locale="auto">
+                </script>
+            </table>
+        </form>
+    </div>
+</%block>

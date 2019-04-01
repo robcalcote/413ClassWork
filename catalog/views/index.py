@@ -24,6 +24,4 @@ def process_request(request, category:cmod.Category=None, page:int=1): #
         'numpages': numpages,
     }
 
-    print(numpages)
-
     return request.dmp.render('index.html', context)

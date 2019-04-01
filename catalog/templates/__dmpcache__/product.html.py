@@ -5,7 +5,7 @@ STOP_RENDERING = runtime.STOP_RENDERING
 __M_dict_builtin = dict
 __M_locals_builtin = locals
 _magic_number = 10
-_modified_time = 1552532798.4062214
+_modified_time = 1553977100.5933995
 _enable_loop = True
 _template_filename = 'C:/Users/Rob/Desktop/BYU/Winter2019/413/project2class/catalog/templates/product.html'
 _template_uri = 'product.html'
@@ -30,11 +30,12 @@ def render_body(context,**pageargs):
     __M_caller = context.caller_stack._push_frame()
     try:
         __M_locals = __M_dict_builtin(pageargs=pageargs)
-        allImages = context.get('allImages', UNDEFINED)
+        form = context.get('form', UNDEFINED)
         def center_content():
             return render_center_content(context._locals(__M_locals))
         self = context.get('self', UNDEFINED)
         product = context.get('product', UNDEFINED)
+        allImages = context.get('allImages', UNDEFINED)
         __M_writer = context.writer()
         __M_writer('\r\n\r\n')
         if 'parent' not in context._data or not hasattr(context._data['parent'], 'center_content'):
@@ -49,11 +50,12 @@ def render_body(context,**pageargs):
 def render_center_content(context,**pageargs):
     __M_caller = context.caller_stack._push_frame()
     try:
-        allImages = context.get('allImages', UNDEFINED)
+        form = context.get('form', UNDEFINED)
         def center_content():
             return render_center_content(context)
         self = context.get('self', UNDEFINED)
         product = context.get('product', UNDEFINED)
+        allImages = context.get('allImages', UNDEFINED)
         __M_writer = context.writer()
         __M_writer('\r\n    <div class="product-display">\r\n        <div class="product-image-main"><img src="')
         __M_writer(django_mako_plus.ExpressionPostProcessor(self)( product.image_url() ))
@@ -70,7 +72,9 @@ def render_center_content(context,**pageargs):
         __M_writer(django_mako_plus.ExpressionPostProcessor(self)( product.description ))
         __M_writer('</td></tr>\r\n                <tr><td>Quantity Available:</td><td>')
         __M_writer(django_mako_plus.ExpressionPostProcessor(self)( product.quantity ))
-        __M_writer('</td></tr>\r\n            </table>\r\n        </div>\r\n        <br />\r\n        <br />\r\n\r\n    </div>\r\n\r\n')
+        __M_writer('</td></tr>\r\n            </table>\r\n            <br />\r\n            <div class="buy-now-form">\r\n                <form method="post">\r\n                    <table>\r\n                        ')
+        __M_writer(django_mako_plus.ExpressionPostProcessor(self)( form.as_table() ))
+        __M_writer('\r\n                    </table>\r\n                    <input type="submit" value="Buy Now" />\r\n                </form>\r\n            </div>\r\n        </div>\r\n        <br />\r\n        <br />\r\n\r\n    </div>\r\n\r\n')
         return ''
     finally:
         context.caller_stack._pop_frame()
@@ -78,6 +82,6 @@ def render_center_content(context,**pageargs):
 
 """
 __M_BEGIN_METADATA
-{"filename": "C:/Users/Rob/Desktop/BYU/Winter2019/413/project2class/catalog/templates/product.html", "uri": "product.html", "source_encoding": "utf-8", "line_map": {"29": 0, "39": 1, "49": 4, "58": 4, "59": 6, "60": 6, "61": 8, "62": 9, "63": 9, "64": 9, "65": 11, "66": 16, "67": 16, "68": 17, "69": 17, "70": 18, "71": 18, "72": 19, "73": 19, "79": 73}}
+{"filename": "C:/Users/Rob/Desktop/BYU/Winter2019/413/project2class/catalog/templates/product.html", "uri": "product.html", "source_encoding": "utf-8", "line_map": {"29": 0, "40": 1, "50": 4, "60": 4, "61": 6, "62": 6, "63": 8, "64": 9, "65": 9, "66": 9, "67": 11, "68": 16, "69": 16, "70": 17, "71": 17, "72": 18, "73": 18, "74": 19, "75": 19, "76": 25, "77": 25, "83": 77}}
 __M_END_METADATA
 """

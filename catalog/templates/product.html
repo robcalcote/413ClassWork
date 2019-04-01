@@ -18,6 +18,15 @@
                 <tr><td>Description:</td><td>${ product.description }</td></tr>
                 <tr><td>Quantity Available:</td><td>${ product.quantity }</td></tr>
             </table>
+            <br />
+            <div class="buy-now-form">
+                <form method="post">
+                    <table>
+                        ${ form.as_table() }
+                    </table>
+                    <input type="submit" value="Buy Now" />
+                </form>
+            </div>
         </div>
         <br />
         <br />

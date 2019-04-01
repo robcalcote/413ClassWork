@@ -28,26 +28,6 @@ class LoginForm(forms.Form):
     username = forms.CharField(label='Username')
     password = forms.CharField(label='Password', widget=forms.PasswordInput())
 
-    '''def clean_username(self):
-        data = self.cleaned_data['username']
-
-        # Check if username is valid
-        if data is None:
-            raise ValidationError(_('Invalid username - please enter a value'))
-
-        # Return the cleaned data.
-        return data
-    
-    def clean_password(self):
-        data = self.cleaned_data['password']
-
-        # Check if username is valid
-        if data is None:
-            raise ValidationError(_('Invalid password - please enter a value'))
-
-        # Return the cleaned data.
-        return data'''
-
     # Runs a bundle clean on both username and password
     def clean(self):
         user = authenticate(username=self.cleaned_data.get('username'), password=self.cleaned_data.get('password'))
